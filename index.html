@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعلم لحسن القدادري | فن الخزف الحديث</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;700&family=El+Messiri:wght@600;700&family=Almarai:wght@400;700&family=Changa:wght@600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style id="custom-theme-styles">
+        :root {
+            --olive-dry: #CCD5AE;    
+            --olive-light: #E9EDC9;  
+            --beige-light: #FEFAE0;  
+            --papaya: #FAEDCD;       
+            --bronze-gold: #D4A373;  
+            --royal-brown: #4B2E1B;  
+            --white: #ffffff;
+            --main-font: 'Cairo', sans-serif;
+            --title-font: 'Amiri', serif;
+            --danger: #c0392b;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--main-font);
+            background-color: var(--beige-light);
+            color: var(--royal-brown);
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+        h1, h2, h3 { font-family: var(--title-font); }
+        
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background-color: var(--olive-dry);
+            display: flex;
+            flex-direction: column;
+            padding: 25px 15px;
+            z-index: 1000;
+            border-right: 2px solid var(--bronze-gold);
+            transition: var(--transition);
+        }
+        .logo {
+            font-size: 1.6rem;
+            color: var(--royal-brown);
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--bronze-gold);
+            padding-bottom: 10px;
+        }
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        .lang-btn {
+            background: var(--white);
+            border: 1px solid var(--bronze-gold);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--royal-brown);
+        }
+        .lang-btn.active { background: var(--bronze-gold); color: white; }
+        .nav-links { list-style: none; flex-grow: 1; }
+        .nav-links li { margin-bottom: 10px; }
+        .nav-item {
+            width: 100%;
+            padding: 10px 15px;
+            background: var(--papaya);
+            border: 1px solid var(--bronze-gold);
+            border-radius: 8px;
+            color: var(--royal-brown);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            text-align: inherit;
+        }
+        .nav-item:hover, .nav-item.active { background: var(--bronze-gold); color: var(--white); }
+        
+        .shield-admin-btn {
+            background: var(--royal-brown);
+            color: var(--white);
+            border: 1px solid var(--bronze-gold);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .shield-admin-btn:hover { background: #2f1b0e; transform: translateY(-2px); }
+
+        /* Main Structure */
+        main {
+            margin-left: 260px;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+        .page { display: none; animation: fadeIn 0.6s ease; padding-bottom: 50px; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: var(--royal-brown);
+            color: var(--white);
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+            border: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(75, 46, 27, 0.4), rgba(75, 46, 27, 0.2)), 
+                        url('https://images.unsplash.com/photo-1525974367351-4091f3a53f09?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .bio-card {
+            background: var(--white);
+            margin: -60px 5% 40px;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--bronze-gold);
+            text-align: center;
+        }
+        .bio-card h2 { font-size: 2.5rem; color: var(--bronze-gold); margin-bottom: 25px; }
+        .bio-card p { font-size: 1.3rem; line-height: 2.2; max-width: 900px; margin: 0 auto; }
+        
+        /* Grids & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 5%;
+        }
+        .item-box {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--papaya);
+            text-align: center;
+            padding-bottom: 15px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .item-box img, .item-box video { width: 100%; height: 350px; object-fit: cover; }
+        
+        .badge-num {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(75, 46, 27, 0.88);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid var(--bronze-gold);
+            z-index: 2;
+        }
+
+        .custom-text-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid var(--bronze-gold);
+            margin: 20px 5%;
+            position: relative;
+        }
+        .custom-text-card h3 { color: var(--bronze-gold); margin-bottom: 12px; font-size: 1.6rem; }
+        .custom-text-card p { line-height: 2; font-size: 1.15rem; }
+
+        /* Modal Dashboard */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: var(--beige-light);
+            padding: 25px;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 850px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid var(--bronze-gold);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--royal-brown);
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--bronze-gold);
+            padding-bottom: 12px;
+        }
+        .tab-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 8px;
+            background: var(--papaya);
+            border: 1px solid var(--bronze-gold);
+            border-radius: 6px;
+            font-weight: bold;
+            color: var(--royal-brown);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+        .tab-btn.active { background: var(--royal-brown); color: var(--white); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        .edit-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--bronze-gold);
+            margin-bottom: 12px;
+        }
+        .edit-item-preview {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .edit-item-info { flex-grow: 1; display: flex; flex-direction: column; gap: 6px; }
+        .btn-action-delete {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-action-save {
+            background: var(--royal-brown);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Color Studio Grids */
+        .presets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid var(--bronze-gold);
+            border-radius: 8px;
+            background: var(--white);
+            margin-bottom: 15px;
+        }
+        .preset-badge {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: bold;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .preset-badge:hover { transform: scale(1.03); border-color: var(--royal-brown); }
+        .preset-dots { display: flex; gap: 3px; }
+        .preset-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+
+        .color-inputs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--bronze-gold);
+        }
+        .color-picker-group { display: flex; flex-direction: column; gap: 5px; font-size: 0.85rem; font-weight: bold; }
+        .color-picker-group input[type="color"] { width: 100%; height: 40px; border: none; border-radius: 5px; cursor: pointer; }
+
+        footer {
+            background: var(--royal-brown);
+            color: white;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 260px;
+        }
+        .hamburger { display: none; position: fixed; top: 15px; left: 15px; z-index: 1100; background: var(--bronze-gold); color: white; padding: 10px; border-radius: 5px; cursor: pointer; }
+        
+        @media (max-width: 992px) {
+            .sidebar { left: -260px; }
+            .sidebar.active { left: 0; }
+            main, footer { margin-left: 0; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+    
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="logo" id="main-logo-text">لحسن القدادري</div>
+        
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="changeLang('ar')">العربية</button>
+            <button class="lang-btn" onclick="changeLang('fr')">FR</button>
+            <button class="lang-btn" onclick="changeLang('en')">EN</button>
+        </div>
+        <ul class="nav-links">
+            <li><button class="nav-item active" id="link-home" onclick="showPage('home', this)"><i class="fas fa-home"></i> <span data-key="nav_home">الرئيسية</span></button></li>
+            <li><button class="nav-item" id="link-gallery" onclick="showPage('gallery', this)"><i class="fas fa-palette"></i> <span data-key="nav_gallery">الرواق</span></button></li>
+            <li><button class="nav-item" id="link-shop" onclick="showPage('shop', this)"><i class="fas fa-shopping-bag"></i> <span data-key="nav_shop">المتجر</span></button></li>
+            <li><button class="nav-item" id="link-contact" onclick="showPage('contact', this)"><i class="fas fa-envelope"></i> <span data-key="nav_contact">اتصل بنا</span></button></li>
+        </ul>
+
+        <button class="shield-admin-btn" onclick="openShieldAdmin()">
+            <i class="fas fa-shield-alt"></i> استوديو الإدارة والتخصيص
+        </button>
+    </nav>
+
+    <main>
+        <!-- Home -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <h1 data-key="hero_title" id="dyn-hero-title">إبداع الخزف الحديث</h1>
+            </section>
+            <div class="bio-card">
+                <h2 data-key="bio_title" id="dyn-bio-title">السيرة الذاتية للمعلم القدادري</h2>
+                <p data-key="bio_content" id="dyn-bio-content">بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القدادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القدادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر.</p>
+            </div>
+            <div id="home-custom-texts"></div>
+            <div class="grid" id="home-grid"></div>
+        </div>
+
+        <!-- Gallery -->
+        <div id="gallery" class="page">
+            <button class="back-btn" onclick="showPage('home')"><i class="fas fa-undo"></i> <span data-key="back">رجوع</span></button>
+            <h2 style="text-align:center; font-size:2.5rem;" data-key="gallery_title" id="dyn-gallery-title">الرواق الفني</h2>
+            <div id="gallery-custom-texts"></div>
+            <div class="grid" id="gallery-grid"></div>
+        </div>
+
+        <!-- Shop -->
+        <div id="shop" class="page">
+            <button class="back-btn" onclick="showPage('home')"><i class="fas fa-undo"></i> <span data-key="back">رجوع</span></button>
+            <h2 style="text-align:center; font-size:2.5rem;" data-key="shop_title" id="dyn-shop-title">المتجر الحصري</h2>
+            <div id="shop-custom-texts"></div>
+            <div class="grid" id="shop-grid"></div>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="page">
+            <button class="back-btn" onclick="showPage('home')"><i class="fas fa-undo"></i> <span data-key="back">رجوع</span></button>
+            <div style="max-width:600px; margin:0 auto; padding:40px; background:var(--papaya); border-radius:15px; text-align:center;">
+                <h2 data-key="contact_title" id="dyn-contact-title">تواصل معنا</h2>
+                <form style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+                    <input type="text" placeholder="الاسم" style="padding:12px; border-radius:5px; border:1px solid var(--bronze-gold);">
+                    <textarea placeholder="رسالتك" style="padding:12px; height:100px; border-radius:5px; border:1px solid var(--bronze-gold);"></textarea>
+                    <button class="nav-item" style="justify-content:center;"><span data-key="send">إرسال</span></button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal لوحة التحكم الشاملة -->
+    <div class="modal" id="shieldModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeShieldModal()">&times;</span>
+            <h3 style="margin-bottom:15px; text-align:center;"><i class="fas fa-shield-alt"></i> استوديو الإدارة والتخصيص المباشر</h3>
+            
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchAdminTab('themeTab', this)"><i class="fas fa-paint-brush"></i> الألوان والخطوط (100 خيار)</button>
+                <button class="tab-btn" onclick="switchAdminTab('textTab', this)"><i class="fas fa-font"></i> إدارة النصوص والعناوين</button>
+                <button class="tab-btn" onclick="switchAdminTab('uploadTab', this)"><i class="fas fa-cloud-upload-alt"></i> رفع وسائط جديدة</button>
+                <button class="tab-btn" onclick="switchAdminTab('editTab', this)"><i class="fas fa-edit"></i> تعديل وحذف الوسائط</button>
+            </div>
+
+            <!-- تبويب 1: استوديو الألوان والخطوط -->
+            <div id="themeTab" class="tab-panel active">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <label style="font-weight:bold;">اختر من بين 100 باليتة مجهزة باحترافية HD:</label>
+                    <button class="btn-action-delete" onclick="resetDefaultTheme()" style="background:#555; padding:5px 10px; font-size:0.8rem;"><i class="fas fa-history"></i> استرجاع الألوان الأصلية</button>
+                </div>
+                
+                <div class="presets-grid" id="presetsList"></div>
+
+                <label style="font-weight:bold; margin-bottom:8px; display:block;">تخصيص يدوي دقيق لكل جزء:</label>
+                <div class="color-inputs-grid">
+                    <div class="color-picker-group">
+                        <span>الخلفية العامة:</span>
+                        <input type="color" id="theme-bg" onchange="applyLiveColor('--beige-light', this.value)">
+                    </div>
+                    <div class="color-picker-group">
+                        <span>الشريط الجانبي:</span>
+                        <input type="color" id="theme-sidebar" onchange="applyLiveColor('--olive-dry', this.value)">
+                    </div>
+                    <div class="color-picker-group">
+                        <span>اللون البرونزي/الرئيسي:</span>
+                        <input type="color" id="theme-bronze" onchange="applyLiveColor('--bronze-gold', this.value)">
+                    </div>
+                    <div class="color-picker-group">
+                        <span>لون الأزرار والبطاقات:</span>
+                        <input type="color" id="theme-papaya" onchange="applyLiveColor('--papaya', this.value)">
+                    </div>
+                    <div class="color-picker-group">
+                        <span>لون النصوص والعناوين:</span>
+                        <input type="color" id="theme-text" onchange="applyLiveColor('--royal-brown', this.value)">
+                    </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px;">
+                    <div>
+                        <label style="font-weight:bold; font-size:0.85rem;">نوع خط العناوين:</label>
+                        <select id="titleFontSelect" style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);" onchange="applyLiveFont('--title-font', this.value)">
+                            <option value="'Amiri', serif">خط أميري (أصيل)</option>
+                            <option value="'Cairo', sans-serif">خط كايرو (عصري)</option>
+                            <option value="'Tajawal', sans-serif">خط تجوال (أنيق)</option>
+                            <option value="'El Messiri', sans-serif">خط المسيري (فخم)</option>
+                            <option value="'Almarai', sans-serif">خط المراعي (بسيط)</option>
+                            <option value="'Changa', sans-serif">خط شانغا (هندسي)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight:bold; font-size:0.85rem;">نوع خط النصوص:</label>
+                        <select id="mainFontSelect" style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);" onchange="applyLiveFont('--main-font', this.value)">
+                            <option value="'Cairo', sans-serif">خط كايرو</option>
+                            <option value="'Tajawal', sans-serif">خط تجوال</option>
+                            <option value="'Almarai', sans-serif">خط المراعي</option>
+                            <option value="'Amiri', serif">خط أميري</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="nav-item" onclick="saveThemeSettings()" style="justify-content:center; background:var(--royal-brown); color:white; font-size:1rem;">
+                    <i class="fas fa-save"></i> حفظ المظهر ونشره لجميع الزوار
+                </button>
+            </div>
+
+            <!-- تبويب 2: إدارة النصوص والعناوين -->
+            <div id="textTab" class="tab-panel">
+                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">إضافة نص / مقال جديد لصفحة معينة</h4>
+                <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px; background:var(--white); padding:12px; border-radius:8px; border:1px solid var(--bronze-gold);">
+                    <select id="textTargetPage" style="padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);">
+                        <option value="home">الصفحة الرئيسية</option>
+                        <option value="gallery">صفحة الرواق الفني</option>
+                        <option value="shop">صفحة المتجر</option>
+                    </select>
+                    <input type="text" id="newTextTitle" placeholder="عنوان الفقرة أو المقال" style="padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);">
+                    <textarea id="newTextContent" placeholder="اكتب نص الفقرة هنا بالتفصيل..." style="padding:8px; height:80px; border-radius:5px; border:1px solid var(--bronze-gold);"></textarea>
+                    <button onclick="addNewCustomText()" class="btn-action-save" style="background:var(--royal-brown); padding:8px; font-weight:bold;"><i class="fas fa-plus"></i> إضافة النص للصفحة</button>
+                </div>
+
+                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">تعديل النصوص الأساسية للموقع</h4>
+                <div style="display:flex; flex-direction:column; gap:8px; background:var(--white); padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); margin-bottom:15px;">
+                    <label style="font-size:0.85rem; font-weight:bold;">عنوان الهيرو (الرئيسية):</label>
+                    <input type="text" id="edit-hero-title" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
+                    
+                    <label style="font-size:0.85rem; font-weight:bold;">عنوان السيرة الذاتية:</label>
+                    <input type="text" id="edit-bio-title" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
+                    
+                    <label style="font-size:0.85rem; font-weight:bold;">محتوى السيرة الذاتية:</label>
+                    <textarea id="edit-bio-content" style="padding:6px; height:70px; border-radius:4px; border:1px solid var(--bronze-gold);"></textarea>
+                    
+                    <button onclick="saveCoreTexts()" class="btn-action-save"><i class="fas fa-save"></i> حفظ النصوص الأساسية</button>
+                </div>
+
+                <h4 style="margin-bottom:10px;">النصوص المضافة حالياً (تعديل وحذف):</h4>
+                <div id="customTextsList"></div>
+            </div>
+
+            <!-- تبويب 3: رفع وسائط -->
+            <div id="uploadTab" class="tab-panel">
+                <form id="uploadForm" onsubmit="handleUpload(event)" style="display:flex; flex-direction:column; gap:12px;">
+                    <label>اختر الملف من الجهاز (صورة أو فيديو):</label>
+                    <input type="file" id="mediaFileInput" accept="image/*,video/*" required style="padding:8px; border:1px solid var(--bronze-gold); border-radius:5px; background:white;">
+                    
+                    <label>تحديد الصفحة المستهدفة:</label>
+                    <select id="targetPageSelect" style="padding:10px; border-radius:5px; border:1px solid var(--bronze-gold);">
+                        <option value="gallery">الرواق الفني</option>
+                        <option value="shop">المتجر الحصري</option>
+                        <option value="home">الصفحة الرئيسية</option>
+                    </select>
+
+                    <input type="text" id="mediaTitleInput" placeholder="عنوان العمل أو المنتج" style="padding:10px; border-radius:5px; border:1px solid var(--bronze-gold);">
+                    
+                    <button type="submit" id="submitUploadBtn" class="nav-item" style="justify-content:center; background:var(--royal-brown); color:white; margin-top:5px;">
+                        تأكيد التنزيل لـ GitHub
+                    </button>
+                </form>
+            </div>
+
+            <!-- تبويب 4: تعديل وحذف الوسائط -->
+            <div id="editTab" class="tab-panel">
+                <label style="font-weight:bold;">اختر الصفحة لإدارة عناصرها:</label>
+                <select id="filterPageSelect" onchange="renderEditList()" style="width:100%; padding:10px; margin:8px 0 15px; border-radius:5px; border:1px solid var(--bronze-gold);">
+                    <option value="gallery">الرواق الفني</option>
+                    <option value="shop">المتجر الحصري</option>
+                    <option value="home">الصفحة الرئيسية</option>
+                </select>
+
+                <div id="editItemsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <p data-key="footer">© 2024 المعلم لحسن القدادري. جميع الحقوق محفوظة.</p>
+        <div style="display:flex; gap:15px;">
+            <a href="#" style="color:white;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color:white;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const GH_USER = "Basidibloge";
+        const GH_REPO = "Lkdadri-lahssan";
+        const GH_TOKEN = "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";
+        const DATA_FILE = "data.json";
+
+        const defaultTheme = {
+            bg: "#FEFAE0",
+            sidebar: "#CCD5AE",
+            bronze: "#D4A373",
+            papaya: "#FAEDCD",
+            text: "#4B2E1B",
+            titleFont: "'Amiri', serif",
+            mainFont: "'Cairo', sans-serif"
+        };
+
+        let currentTheme = { ...defaultTheme };
+
+        let siteData = {
+            theme: { ...defaultTheme },
+            coreTexts: {
+                heroTitle: "إبداع الخزف الحديث",
+                bioTitle: "السيرة الذاتية للمعلم القدادري",
+                bioContent: "بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القدادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القدادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر."
+            },
+            customTexts: [],
+            mediaItems: [
+                { id: 1, page: 'gallery', type: 'image', src: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80', title: 'خزف ملكي مزخرف' },
+                { id: 2, page: 'gallery', type: 'image', src: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80', title: 'تشكيل طيني يدوي' },
+                { id: 3, page: 'shop', type: 'image', src: 'https://placehold.co/400x400/D4A373/4B2E1B?text=Product+1', title: 'فازة برونزية' },
+                { id: 4, page: 'shop', type: 'image', src: 'https://placehold.co/400x400/CCD5AE/4B2E1B?text=Product+2', title: 'طقم زيتوني' }
+            ]
+        };
+
+        let currentSha = null;
+
+        // توليد 100 باليتة لونية HD احترافية
+        const baseThemes = [
+            { name: "فخار مراكشي أصيل", bg: "#fbf6f0", sidebar: "#cfa17b", bronze: "#b87333", papaya: "#ecd5c1", text: "#3d1f11" },
+            { name: "زيتوني أطلسي", bg: "#f4f6f0", sidebar: "#94a884", bronze: "#a87d4f", papaya: "#d8e2dc", text: "#2d3826" },
+            { name: "أزرق شاون ملكي", bg: "#f0f6fa", sidebar: "#7eb0d5", bronze: "#4a7c59", papaya: "#d0e4f2", text: "#1a364a" },
+            { name: "رمال الصحراء الذهبية", bg: "#fdf8ee", sidebar: "#e6be8a", bronze: "#c4883f", papaya: "#faeed6", text: "#42280d" },
+            { name: "عاجي وفحم مودرن", bg: "#f5f5f5", sidebar: "#e0e0e0", bronze: "#707070", papaya: "#eaeaea", text: "#1a1a1a" },
+            { name: "أرجواني ملكي", bg: "#faf4f8", sidebar: "#c299b8", bronze: "#8f4b7a", papaya: "#ecd9e7", text: "#3b1331" },
+            { name: "فيروزي البحر", bg: "#f0faf9", sidebar: "#79c2ba", bronze: "#c67d4f", papaya: "#cbf0ec", text: "#103834" },
+            { name: "قهوة بالكراميل", bg: "#fbf6f0", sidebar: "#d7b49e", bronze: "#96613d", papaya: "#edd8cc", text: "#3b2214" },
+            { name: "أحمر قرميدي مغربي", bg: "#faf2f0", sidebar: "#d48c80", bronze: "#9e3d2f", papaya: "#f2cec8", text: "#42130d" },
+            { name: "زمردي فاخر", bg: "#f2f8f5", sidebar: "#6ea083", bronze: "#b58742", papaya: "#c6e2d3", text: "#133b26" }
+        ];
+
+        const generatedPresets = [];
+        const fontCombos = [
+            { title: "'Amiri', serif", main: "'Cairo', sans-serif" },
+            { title: "'El Messiri', sans-serif", main: "'Tajawal', sans-serif" },
+            { title: "'Changa', sans-serif", main: "'Almarai', sans-serif" }
+        ];
+
+        let pId = 1;
+        baseThemes.forEach(bt => {
+            for(let i = 0; i < 10; i++) {
+                const shift = (i * 8);
+                generatedPresets.push({
+                    name: `${bt.name} ${i+1}`,
+                    bg: bt.bg,
+                    sidebar: bt.sidebar,
+                    bronze: bt.bronze,
+                    papaya: bt.papaya,
+                    text: bt.text,
+                    titleFont: fontCombos[i % 3].title,
+                    mainFont: fontCombos[i % 3].main
+                });
+                pId++;
+            }
+        });
+
+        function populatePresetBadges() {
+            const list = document.getElementById('presetsList');
+            list.innerHTML = '';
+            generatedPresets.forEach((p, idx) => {
+                const badge = document.createElement('div');
+                badge.className = 'preset-badge';
+                badge.onclick = () => applyFullPreset(p);
+                badge.innerHTML = `
+                    <span>#${idx+1} ${p.name}</span>
+                    <div class="preset-dots">
+                        <div class="preset-dot" style="background:${p.bg}"></div>
+                        <div class="preset-dot" style="background:${p.sidebar}"></div>
+                        <div class="preset-dot" style="background:${p.bronze}"></div>
+                        <div class="preset-dot" style="background:${p.text}"></div>
+                    </div>
+                `;
+                list.appendChild(badge);
+            });
+        }
+
+        function applyTheme(themeObj) {
+            currentTheme = { ...themeObj };
+            const root = document.documentElement;
+            root.style.setProperty('--beige-light', themeObj.bg);
+            root.style.setProperty('--olive-dry', themeObj.sidebar);
+            root.style.setProperty('--bronze-gold', themeObj.bronze);
+            root.style.setProperty('--papaya', themeObj.papaya);
+            root.style.setProperty('--royal-brown', themeObj.text);
+            root.style.setProperty('--title-font', themeObj.titleFont || "'Amiri', serif");
+            root.style.setProperty('--main-font', themeObj.mainFont || "'Cairo', sans-serif");
+
+            document.getElementById('theme-bg').value = themeObj.bg;
+            document.getElementById('theme-sidebar').value = themeObj.sidebar;
+            document.getElementById('theme-bronze').value = themeObj.bronze;
+            document.getElementById('theme-papaya').value = themeObj.papaya;
+            document.getElementById('theme-text').value = themeObj.text;
+            if(themeObj.titleFont) document.getElementById('titleFontSelect').value = themeObj.titleFont;
+            if(themeObj.mainFont) document.getElementById('mainFontSelect').value = themeObj.mainFont;
+        }
+
+        function applyFullPreset(p) {
+            applyTheme(p);
+        }
+
+        function applyLiveColor(varName, color) {
+            document.documentElement.style.setProperty(varName, color);
+            if(varName === '--beige-light') currentTheme.bg = color;
+            if(varName === '--olive-dry') currentTheme.sidebar = color;
+            if(varName === '--bronze-gold') currentTheme.bronze = color;
+            if(varName === '--papaya') currentTheme.papaya = color;
+            if(varName === '--royal-brown') currentTheme.text = color;
+        }
+
+        function applyLiveFont(varName, fontVal) {
+            document.documentElement.style.setProperty(varName, fontVal);
+            if(varName === '--title-font') currentTheme.titleFont = fontVal;
+            if(varName === '--main-font') currentTheme.mainFont = fontVal;
+        }
+
+        function resetDefaultTheme() {
+            applyTheme(defaultTheme);
+        }
+
+        async function saveThemeSettings() {
+            siteData.theme = { ...currentTheme };
+            await saveToGitHub("تحديث وتخصيص مظهر الموقع والألوان");
+            alert("تم حفظ المظهر الجديد ونشره بنجاح لجميع الزوار!");
+        }
+
+        /* إدارة النصوص */
+        function renderTexts() {
+            document.getElementById('dyn-hero-title').innerText = siteData.coreTexts.heroTitle;
+            document.getElementById('dyn-bio-title').innerText = siteData.coreTexts.bioTitle;
+            document.getElementById('dyn-bio-content').innerText = siteData.coreTexts.bioContent;
+
+            document.getElementById('edit-hero-title').value = siteData.coreTexts.heroTitle;
+            document.getElementById('edit-bio-title').value = siteData.coreTexts.bioTitle;
+            document.getElementById('edit-bio-content').value = siteData.coreTexts.bioContent;
+
+            ['home', 'gallery', 'shop'].forEach(page => {
+                const container = document.getElementById(`${page}-custom-texts`);
+                if(!container) return;
+                container.innerHTML = '';
+                
+                const texts = (siteData.customTexts || []).filter(t => t.page === page);
+                texts.forEach(t => {
+                    const card = document.createElement('div');
+                    card.className = 'custom-text-card';
+                    card.innerHTML = `
+                        <h3>${t.title}</h3>
+                        <p>${t.content}</p>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+
+            renderCustomTextsEditor();
+        }
+
+        function renderCustomTextsEditor() {
+            const container = document.getElementById('customTextsList');
+            container.innerHTML = '';
+            if(!siteData.customTexts || siteData.customTexts.length === 0) {
+                container.innerHTML = '<p style="font-size:0.85rem; color:#666;">لا توجد نصوص مضافة حالياً.</p>';
+                return;
+            }
+
+            siteData.customTexts.forEach(t => {
+                const row = document.createElement('div');
+                row.className = 'edit-item-row';
+                row.innerHTML = `
+                    <div class="edit-item-info">
+                        <span style="font-size:0.8rem; font-weight:bold; color:var(--bronze-gold);">الصفحة: ${t.page}</span>
+                        <input type="text" id="txt-title-${t.id}" value="${t.title}" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
+                        <textarea id="txt-content-${t.id}" style="padding:6px; height:60px; border-radius:4px; border:1px solid var(--bronze-gold);">${t.content}</textarea>
+                        <button class="btn-action-save" onclick="updateCustomText(${t.id})"><i class="fas fa-save"></i> حفظ التعديل</button>
+                    </div>
+                    <button class="btn-action-delete" onclick="deleteCustomText(${t.id})"><i class="fas fa-trash"></i> مسح</button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        async function saveCoreTexts() {
+            siteData.coreTexts.heroTitle = document.getElementById('edit-hero-title').value;
+            siteData.coreTexts.bioTitle = document.getElementById('edit-bio-title').value;
+            siteData.coreTexts.bioContent = document.getElementById('edit-bio-content').value;
+            renderTexts();
+            await saveToGitHub("تحديث النصوص الأساسية للموقع");
+            alert("تم حفظ النصوص ونشرها لجميع الزوار!");
+        }
+
+        async function addNewCustomText() {
+            const page = document.getElementById('textTargetPage').value;
+            const title = document.getElementById('newTextTitle').value.trim();
+            const content = document.getElementById('newTextContent').value.trim();
+
+            if(!title || !content) {
+                alert("يرجى ملء العنوان والمحتوى!");
+                return;
+            }
+
+            if(!siteData.customTexts) siteData.customTexts = [];
+            siteData.customTexts.push({
+                id: Date.now(),
+                page: page,
+                title: title,
+                content: content
+            });
+
+            document.getElementById('newTextTitle').value = '';
+            document.getElementById('newTextContent').value = '';
+
+            renderTexts();
+            await saveToGitHub(`إضافة نص جديد لصفحة ${page}`);
+            alert("تمت إضافة النص ونشره بنجاح!");
+        }
+
+        async function updateCustomText(id) {
+            const t = siteData.customTexts.find(item => item.id === id);
+            if(t) {
+                t.title = document.getElementById(`txt-title-${id}`).value;
+                t.content = document.getElementById(`txt-content-${id}`).value;
+                renderTexts();
+                await saveToGitHub(`تعديل نص #${id}`);
+                alert("تم تحديث النص على السيرفر!");
+            }
+        }
+
+        async function deleteCustomText(id) {
+            if(confirm("هل تريد مسح هذا النص نهائياً؟")) {
+                siteData.customTexts = siteData.customTexts.filter(item => item.id !== id);
+                renderTexts();
+                await saveToGitHub(`حذف نص #${id}`);
+                alert("تم مسح النص بنجاح!");
+            }
+        }
+
+        /* عرض وتحديث الوسائط */
+        function renderAllMedia() {
+            ['home', 'gallery', 'shop'].forEach(page => {
+                const container = document.getElementById(page + '-grid');
+                if(!container) return;
+                container.innerHTML = '';
+                
+                const filtered = siteData.mediaItems.filter(item => item.page === page);
+                filtered.forEach((item, index) => {
+                    const box = document.createElement('div');
+                    box.className = 'item-box';
+
+                    let mediaTag = item.type === 'video'
+                        ? `<video src="${item.src}" controls autoplay muted loop></video>`
+                        : `<img src="${item.src}" alt="${item.title || ''}">`;
+
+                    let shopBtn = page === 'shop' 
+                        ? `<button class="nav-item" style="justify-content:center; margin-top:10px;"><span>إضافة للسلة</span></button>` 
+                        : '';
+
+                    box.innerHTML = `
+                        <span class="badge-num">#${index + 1}</span>
+                        ${mediaTag}
+                        ${item.title ? `<h3 style="margin-top:10px; font-size:1.2rem;">${item.title}</h3>` : ''}
+                        ${shopBtn}
+                    `;
+                    container.appendChild(box);
+                });
+            });
+        }
+
+        /* ربط GitHub */
+        async function fetchGitHubData() {
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${DATA_FILE}?ref=main`, {
+                    headers: { 'Authorization': `token ${GH_TOKEN}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    currentSha = data.sha;
+                    const content = decodeURIComponent(escape(atob(data.content)));
+                    const parsed = JSON.parse(content);
+                    if(parsed.mediaItems) siteData.mediaItems = parsed.mediaItems;
+                    if(parsed.theme) applyTheme(parsed.theme);
+                    if(parsed.coreTexts) siteData.coreTexts = parsed.coreTexts;
+                    if(parsed.customTexts) siteData.customTexts = parsed.customTexts;
+                    renderAllMedia();
+                    renderTexts();
+                }
+            } catch (err) {
+                console.log("استخدام البيانات الافتراضية:", err);
+            }
+        }
+
+        async function saveToGitHub(commitMsg) {
+            const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(siteData, null, 2))));
+            const body = {
+                message: commitMsg,
+                content: contentEncoded
+            };
+            if (currentSha) body.sha = currentSha;
+
+            const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${DATA_FILE}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${GH_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (res.ok) {
+                const resData = await res.json();
+                currentSha = resData.content.sha;
+                return true;
+            }
+            return false;
+        }
+
+        async function handleUpload(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('mediaFileInput');
+            const targetPage = document.getElementById('targetPageSelect').value;
+            const titleInput = document.getElementById('mediaTitleInput').value;
+            const btn = document.getElementById('submitUploadBtn');
+
+            if (!fileInput.files || !fileInput.files[0]) return;
+
+            const file = fileInput.files[0];
+            const isVideo = file.type.startsWith('video');
+            const fileName = `uploads/${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
+
+            btn.disabled = true;
+            btn.innerText = "جاري الرفع إلى GitHub...";
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = async function() {
+                const base64Content = reader.result.split(',')[1];
+                try {
+                    const uploadRes = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${fileName}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${GH_TOKEN}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Upload media: ${file.name}`,
+                            content: base64Content
+                        })
+                    });
+
+                    if (uploadRes.ok) {
+                        const fileRawURL = `https://raw.githubusercontent.com/${GH_USER}/${GH_REPO}/main/${fileName}`;
+                        siteData.mediaItems.push({
+                            id: Date.now(),
+                            page: targetPage,
+                            type: isVideo ? 'video' : 'image',
+                            src: fileRawURL,
+                            title: titleInput.trim(),
+                            githubPath: fileName
+                        });
+
+                        await saveToGitHub(`إضافة عنصر جديد في صفحة ${targetPage}`);
+                        renderAllMedia();
+                        alert("تم رفع العنصر ونشره لجميع الزوار بنجاح!");
+                        fileInput.value = "";
+                        document.getElementById('mediaTitleInput').value = "";
+                        closeShieldModal();
+                        showPage(targetPage);
+                    } else {
+                        alert("حدث خطأ أثناء رفع الملف إلى GitHub.");
+                    }
+                } catch (e) {
+                    alert("فشل الاتصال بـ GitHub.");
+                } finally {
+                    btn.disabled = false;
+                    btn.innerText = "تأكيد التنزيل لـ GitHub";
+                }
+            };
+        }
+
+        function renderEditList() {
+            const selectedPage = document.getElementById('filterPageSelect').value;
+            const container = document.getElementById('editItemsList');
+            container.innerHTML = '';
+
+            const items = siteData.mediaItems.filter(item => item.page === selectedPage);
+
+            if (items.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding:15px;">لا توجد عناصر في هذه الصفحة حالياً.</p>';
+                return;
+            }
+
+            items.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = 'edit-item-row';
+
+                let preview = item.type === 'video'
+                    ? `<video src="${item.src}" class="edit-item-preview"></video>`
+                    : `<img src="${item.src}" class="edit-item-preview">`;
+
+                row.innerHTML = `
+                    <span style="font-weight:bold; color:var(--royal-brown);">#${index + 1}</span>
+                    ${preview}
+                    <div class="edit-item-info">
+                        <input type="text" id="title-input-${item.id}" value="${item.title || ''}" placeholder="عنوان العنصر" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
+                        <button class="btn-action-save" onclick="updateItemTitle(${item.id})"><i class="fas fa-check"></i> حفظ التعديل على السيرفر</button>
+                    </div>
+                    <button class="btn-action-delete" onclick="deleteItem(${item.id})"><i class="fas fa-trash"></i> مسح</button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        async function updateItemTitle(id) {
+            const newTitle = document.getElementById(`title-input-${id}`).value;
+            const item = siteData.mediaItems.find(i => i.id === id);
+            if (item) {
+                item.title = newTitle;
+                renderAllMedia();
+                await saveToGitHub(`تعديل عنوان العنصر #${id}`);
+                alert("تم تحديث العنوان في GitHub لجميع الزوار!");
+            }
+        }
+
+        async function deleteItem(id) {
+            if (confirm("هل تريد مسح هذا العنصر نهائياً؟")) {
+                siteData.mediaItems = siteData.mediaItems.filter(i => i.id !== id);
+                renderAllMedia();
+                renderEditList();
+                await saveToGitHub(`حذف عنصر #${id}`);
+                alert("تم حذف العنصر وتحديث الموقع لجميع الزوار.");
+            }
+        }
+
+        /* أدوات التنقل والحماية */
+        function openShieldAdmin() {
+            const code = prompt("يرجى إدخال الرمز السري للوصول:");
+            if (code === "Marrakech1") {
+                renderEditList();
+                renderTexts();
+                document.getElementById('shieldModal').style.display = "flex";
+            } else if (code !== null) {
+                alert("الرمز السري غير صحيح!");
+            }
+        }
+
+        function closeShieldModal() {
+            document.getElementById('shieldModal').style.display = "none";
+        }
+
+        function switchAdminTab(tabId, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+            if (tabId === 'editTab') renderEditList();
+            if (tabId === 'textTab') renderTexts();
+        }
+
+        function showPage(pageId, btn) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+            else {
+                const navBtn = document.getElementById('link-' + pageId);
+                if(navBtn) navBtn.classList.add('active');
+            }
+
+            if(window.innerWidth < 992) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+            window.scrollTo(0,0);
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        window.onload = () => {
+            populatePresetBadges();
+            applyTheme(defaultTheme);
+            renderAllMedia();
+            renderTexts();
+            fetchGitHubData();
+        };
+    </script>
+</body>
+</html>
