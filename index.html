@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المعلم لحسن القدادري | فن الخزف الحديث</title>
+    <title>المعلم لحسن القادري | فن الخزف الحديث</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;700&family=El+Messiri:wght@600;700&family=Almarai:wght@400;700&family=Changa:wght@600&display=swap" rel="stylesheet">
     <!-- Icons -->
@@ -41,7 +41,7 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: 0;
+            right: 0;
             width: 260px;
             height: 100vh;
             background-color: var(--olive-dry);
@@ -49,9 +49,16 @@
             flex-direction: column;
             padding: 25px 15px;
             z-index: 1000;
-            border-right: 2px solid var(--bronze-gold);
+            border-left: 2px solid var(--bronze-gold);
             transition: var(--transition);
         }
+        html[dir="ltr"] .sidebar {
+            right: auto;
+            left: 0;
+            border-left: none;
+            border-right: 2px solid var(--bronze-gold);
+        }
+
         .logo {
             font-size: 1.6rem;
             color: var(--royal-brown);
@@ -71,10 +78,11 @@
             border: 1px solid var(--bronze-gold);
             padding: 5px 10px;
             border-radius: 4px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             cursor: pointer;
             font-weight: bold;
             color: var(--royal-brown);
+            transition: var(--transition);
         }
         .lang-btn.active { background: var(--bronze-gold); color: white; }
         .nav-links { list-style: none; flex-grow: 1; }
@@ -116,10 +124,16 @@
 
         /* Main Structure */
         main {
-            margin-left: 260px;
+            margin-right: 260px;
+            margin-left: 0;
             min-height: 100vh;
             transition: var(--transition);
         }
+        html[dir="ltr"] main {
+            margin-right: 0;
+            margin-left: 260px;
+        }
+
         .page { display: none; animation: fadeIn 0.6s ease; padding-bottom: 50px; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -194,6 +208,10 @@
             border: 1px solid var(--bronze-gold);
             z-index: 2;
         }
+        html[dir="ltr"] .badge-num {
+            right: auto;
+            left: 12px;
+        }
 
         .custom-text-card {
             background: var(--white);
@@ -251,7 +269,7 @@
         .floating-whatsapp {
             position: fixed;
             bottom: 25px;
-            right: 25px;
+            left: 25px;
             width: 60px;
             height: 60px;
             background-color: var(--whatsapp-green);
@@ -265,6 +283,10 @@
             z-index: 1500;
             text-decoration: none;
             transition: var(--transition);
+        }
+        html[dir="ltr"] .floating-whatsapp {
+            left: auto;
+            right: 25px;
         }
         .floating-whatsapp:hover {
             transform: scale(1.1);
@@ -298,6 +320,10 @@
             font-size: 1.6rem;
             cursor: pointer;
             color: var(--royal-brown);
+        }
+        html[dir="ltr"] .close-modal {
+            left: auto;
+            right: 15px;
         }
 
         .tab-buttons {
@@ -412,35 +438,60 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-right: 260px;
+            margin-left: 0;
+            transition: var(--transition);
+        }
+        html[dir="ltr"] footer {
+            margin-right: 0;
             margin-left: 260px;
         }
-        .hamburger { display: none; position: fixed; top: 15px; left: 15px; z-index: 1100; background: var(--bronze-gold); color: white; padding: 10px; border-radius: 5px; cursor: pointer; }
+
+        .hamburger { 
+            display: none; 
+            position: fixed; 
+            top: 15px; 
+            right: 15px; 
+            z-index: 1100; 
+            background: var(--bronze-gold); 
+            color: white; 
+            padding: 10px 14px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        html[dir="ltr"] .hamburger {
+            right: auto;
+            left: 15px;
+        }
         
         @media (max-width: 992px) {
-            .sidebar { left: -260px; }
-            .sidebar.active { left: 0; }
-            main, footer { margin-left: 0; }
+            .sidebar { right: -260px; }
+            .sidebar.active { right: 0; }
+            html[dir="ltr"] .sidebar { left: -260px; right: auto; }
+            html[dir="ltr"] .sidebar.active { left: 0; right: auto; }
+            main, footer, html[dir="ltr"] main, html[dir="ltr"] footer { margin-right: 0; margin-left: 0; }
             .hamburger { display: block; }
-            .floating-whatsapp { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 28px; }
+            .floating-whatsapp { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 28px; }
+            html[dir="ltr"] .floating-whatsapp { left: auto; right: 20px; }
         }
     </style>
 </head>
 <body id="body">
     <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
     
-    <!-- زر الواتساب العائم في أسفل الصفحة -->
-    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="floating-whatsapp" title="تواصل عبر الواتساب">
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="floating-whatsapp" title="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
-        <div class="logo" id="main-logo-text">لحسن القدادري</div>
+        <div class="logo" id="main-logo-text" data-key="logo">لحسن القادري</div>
         
         <div class="lang-switcher">
-            <button class="lang-btn active" onclick="changeLang('ar')">العربية</button>
-            <button class="lang-btn" onclick="changeLang('fr')">FR</button>
-            <button class="lang-btn" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn active" id="lang-ar" onclick="changeLang('ar')">العربية</button>
+            <button class="lang-btn" id="lang-fr" onclick="changeLang('fr')">FR</button>
+            <button class="lang-btn" id="lang-en" onclick="changeLang('en')">EN</button>
         </div>
         <ul class="nav-links">
             <li><button class="nav-item active" id="link-home" onclick="showPage('home', this)"><i class="fas fa-home"></i> <span data-key="nav_home">الرئيسية</span></button></li>
@@ -450,7 +501,7 @@
         </ul>
 
         <button class="shield-admin-btn" onclick="openShieldAdmin()">
-            <i class="fas fa-shield-alt"></i> استوديو الإدارة والتخصيص
+            <i class="fas fa-shield-alt"></i> <span data-key="admin_btn">استوديو الإدارة</span>
         </button>
     </nav>
 
@@ -461,8 +512,8 @@
                 <h1 data-key="hero_title" id="dyn-hero-title">إبداع الخزف الحديث</h1>
             </section>
             <div class="bio-card">
-                <h2 data-key="bio_title" id="dyn-bio-title">السيرة الذاتية للمعلم القدادري</h2>
-                <p data-key="bio_content" id="dyn-bio-content">بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القدادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القدادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر.</p>
+                <h2 data-key="bio_title" id="dyn-bio-title">السيرة الذاتية للمعلم القادري</h2>
+                <p data-key="bio_content" id="dyn-bio-content">بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر.</p>
             </div>
             <div id="home-custom-texts"></div>
             <div class="grid" id="home-grid"></div>
@@ -484,59 +535,57 @@
             <div class="grid" id="shop-grid"></div>
         </div>
 
-        <!-- Contact (تم التحديث لدعم الواتساب المباشر) -->
+        <!-- Contact -->
         <div id="contact" class="page">
             <button class="back-btn" onclick="showPage('home')"><i class="fas fa-undo"></i> <span data-key="back">رجوع</span></button>
             
             <div class="contact-box">
                 <h2 data-key="contact_title" id="dyn-contact-title" style="margin-bottom: 20px; font-size: 2.2rem;">تواصل معنا</h2>
                 
-                <!-- بطاقة التواصل المباشر عبر الواتساب -->
                 <div class="whatsapp-contact-card">
                     <i class="fab fa-whatsapp" style="font-size: 3.5rem; color: var(--whatsapp-green);"></i>
-                    <h3 style="font-size: 1.4rem; color: var(--royal-brown);">للطلب والاستفسار الفوري عن المنتجات</h3>
-                    <p style="color: #666; font-size: 1.05rem;">يسعد المعلم لحسن القدادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.</p>
+                    <h3 data-key="whatsapp_heading" style="font-size: 1.4rem; color: var(--royal-brown);">للطلب والاستفسار الفوري عن المنتجات</h3>
+                    <p data-key="whatsapp_desc" style="color: #666; font-size: 1.05rem;">يسعد المعلم لحسن القادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.</p>
                     <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب (+212 612-112248)
+                        <i class="fab fa-whatsapp"></i> <span data-key="whatsapp_btn_text">تواصل عبر الواتساب (+212 612-112248)</span>
                     </a>
                 </div>
 
-                <!-- نموذج المراسلة الإضافي عبر الموقع -->
                 <form style="display:flex; flex-direction:column; gap:10px; margin-top:15px;" onsubmit="sendViaWhatsappForm(event)">
-                    <p style="font-weight: bold; font-size: 0.95rem; color: var(--royal-brown);">أو اترك رسالتك السريعة هنا:</p>
-                    <input type="text" id="contact-name" placeholder="الاسم الكامل" required style="padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;">
-                    <textarea id="contact-msg" placeholder="اكتب استفسارك هنا..." required style="padding:12px; height:90px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;"></textarea>
+                    <p data-key="form_prompt" style="font-weight: bold; font-size: 0.95rem; color: var(--royal-brown);">أو اترك رسالتك السريعة هنا:</p>
+                    <input type="text" id="contact-name" data-key-placeholder="placeholder_name" placeholder="الاسم الكامل" required style="padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;">
+                    <textarea id="contact-msg" data-key-placeholder="placeholder_msg" placeholder="اكتب استفسارك هنا..." required style="padding:12px; height:90px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;"></textarea>
                     <button type="submit" class="nav-item" style="justify-content:center; background:var(--royal-brown); color:white;">
-                        <i class="fas fa-paper-plane"></i> إرسال عبر الواتساب
+                        <i class="fas fa-paper-plane"></i> <span data-key="send_btn">إرسال عبر الواتساب</span>
                     </button>
                 </form>
             </div>
         </div>
     </main>
 
-    <!-- Modal لوحة التحكم الشاملة -->
+    <!-- Modal Dashboard -->
     <div class="modal" id="shieldModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeShieldModal()">&times;</span>
             <h3 style="margin-bottom:15px; text-align:center;"><i class="fas fa-shield-alt"></i> استوديو الإدارة والتخصيص المباشر</h3>
             
             <div class="tab-buttons">
-                <button class="tab-btn active" onclick="switchAdminTab('themeTab', this)"><i class="fas fa-paint-brush"></i> الألوان والخطوط (100 خيار)</button>
-                <button class="tab-btn" onclick="switchAdminTab('textTab', this)"><i class="fas fa-font"></i> إدارة النصوص والعناوين</button>
-                <button class="tab-btn" onclick="switchAdminTab('uploadTab', this)"><i class="fas fa-cloud-upload-alt"></i> رفع وسائط جديدة</button>
-                <button class="tab-btn" onclick="switchAdminTab('editTab', this)"><i class="fas fa-edit"></i> تعديل وحذف الوسائط</button>
+                <button class="tab-btn active" onclick="switchAdminTab('themeTab', this)"><i class="fas fa-paint-brush"></i> الألوان والخطوط</button>
+                <button class="tab-btn" onclick="switchAdminTab('textTab', this)"><i class="fas fa-font"></i> إدارة النصوص</button>
+                <button class="tab-btn" onclick="switchAdminTab('uploadTab', this)"><i class="fas fa-cloud-upload-alt"></i> رفع وسائط</button>
+                <button class="tab-btn" onclick="switchAdminTab('editTab', this)"><i class="fas fa-edit"></i> تعديل وحذف</button>
             </div>
 
             <!-- تبويب 1: الألوان والخطوط -->
             <div id="themeTab" class="tab-panel active">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <label style="font-weight:bold;">اختر من بين 100 باليتة مجهزة باحترافية HD:</label>
-                    <button class="btn-action-delete" onclick="resetDefaultTheme()" style="background:#555; padding:5px 10px; font-size:0.8rem;"><i class="fas fa-history"></i> استرجاع الألوان الأصلية</button>
+                    <label style="font-weight:bold;">اختر باليتة ألوان جاهزة:</label>
+                    <button class="btn-action-delete" onclick="resetDefaultTheme()" style="background:#555; padding:5px 10px; font-size:0.8rem;"><i class="fas fa-history"></i> استرجاع الأصلي</button>
                 </div>
                 
                 <div class="presets-grid" id="presetsList"></div>
 
-                <label style="font-weight:bold; margin-bottom:8px; display:block;">تخصيص يدوي دقيق لكل جزء:</label>
+                <label style="font-weight:bold; margin-bottom:8px; display:block;">تخصيص يدوي:</label>
                 <div class="color-inputs-grid">
                     <div class="color-picker-group">
                         <span>الخلفية العامة:</span>
@@ -547,22 +596,22 @@
                         <input type="color" id="theme-sidebar" onchange="applyLiveColor('--olive-dry', this.value)">
                     </div>
                     <div class="color-picker-group">
-                        <span>اللون البرونزي/الرئيسي:</span>
+                        <span>اللون البرونزي:</span>
                         <input type="color" id="theme-bronze" onchange="applyLiveColor('--bronze-gold', this.value)">
                     </div>
                     <div class="color-picker-group">
-                        <span>لون الأزرار والبطاقات:</span>
+                        <span>لون البطاقات:</span>
                         <input type="color" id="theme-papaya" onchange="applyLiveColor('--papaya', this.value)">
                     </div>
                     <div class="color-picker-group">
-                        <span>لون النصوص والعناوين:</span>
+                        <span>لون النصوص:</span>
                         <input type="color" id="theme-text" onchange="applyLiveColor('--royal-brown', this.value)">
                     </div>
                 </div>
 
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px;">
                     <div>
-                        <label style="font-weight:bold; font-size:0.85rem;">نوع خط العناوين:</label>
+                        <label style="font-weight:bold; font-size:0.85rem;">خط العناوين:</label>
                         <select id="titleFontSelect" style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);" onchange="applyLiveFont('--title-font', this.value)">
                             <option value="'Amiri', serif">خط أميري (أصيل)</option>
                             <option value="'Cairo', sans-serif">خط كايرو (عصري)</option>
@@ -573,7 +622,7 @@
                         </select>
                     </div>
                     <div>
-                        <label style="font-weight:bold; font-size:0.85rem;">نوع خط النصوص:</label>
+                        <label style="font-weight:bold; font-size:0.85rem;">خط النصوص:</label>
                         <select id="mainFontSelect" style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);" onchange="applyLiveFont('--main-font', this.value)">
                             <option value="'Cairo', sans-serif">خط كايرو</option>
                             <option value="'Tajawal', sans-serif">خط تجوال</option>
@@ -584,13 +633,13 @@
                 </div>
 
                 <button class="nav-item" onclick="saveThemeSettings()" style="justify-content:center; background:var(--royal-brown); color:white; font-size:1rem;">
-                    <i class="fas fa-save"></i> حفظ المظهر ونشره لجميع الزوار
+                    <i class="fas fa-save"></i> حفظ المظهر ونشره
                 </button>
             </div>
 
-            <!-- تبويب 2: إدارة النصوص والعناوين -->
+            <!-- تبويب 2: إدارة النصوص -->
             <div id="textTab" class="tab-panel">
-                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">إضافة نص / مقال جديد لصفحة معينة</h4>
+                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">إضافة نص / مقال جديد</h4>
                 <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px; background:var(--white); padding:12px; border-radius:8px; border:1px solid var(--bronze-gold);">
                     <select id="textTargetPage" style="padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);">
                         <option value="home">الصفحة الرئيسية</option>
@@ -599,12 +648,12 @@
                     </select>
                     <input type="text" id="newTextTitle" placeholder="عنوان الفقرة أو المقال" style="padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);">
                     <textarea id="newTextContent" placeholder="اكتب نص الفقرة هنا بالتفصيل..." style="padding:8px; height:80px; border-radius:5px; border:1px solid var(--bronze-gold);"></textarea>
-                    <button onclick="addNewCustomText()" class="btn-action-save" style="background:var(--royal-brown); padding:8px; font-weight:bold;"><i class="fas fa-plus"></i> إضافة النص للصفحة</button>
+                    <button onclick="addNewCustomText()" class="btn-action-save" style="background:var(--royal-brown); padding:8px; font-weight:bold;"><i class="fas fa-plus"></i> إضافة النص</button>
                 </div>
 
-                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">تعديل النصوص الأساسية للموقع</h4>
+                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">تعديل النصوص الأساسية</h4>
                 <div style="display:flex; flex-direction:column; gap:8px; background:var(--white); padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); margin-bottom:15px;">
-                    <label style="font-size:0.85rem; font-weight:bold;">عنوان الهيرو (الرئيسية):</label>
+                    <label style="font-size:0.85rem; font-weight:bold;">عنوان الهيرو:</label>
                     <input type="text" id="edit-hero-title" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
                     
                     <label style="font-size:0.85rem; font-weight:bold;">عنوان السيرة الذاتية:</label>
@@ -616,7 +665,7 @@
                     <button onclick="saveCoreTexts()" class="btn-action-save"><i class="fas fa-save"></i> حفظ النصوص الأساسية</button>
                 </div>
 
-                <h4 style="margin-bottom:10px;">النصوص المضافة حالياً (تعديل وحذف):</h4>
+                <h4 style="margin-bottom:10px;">النصوص المضافة حالياً:</h4>
                 <div id="customTextsList"></div>
             </div>
 
@@ -656,9 +705,9 @@
     </div>
 
     <footer id="footer">
-        <p data-key="footer">© 2024 المعلم لحسن القدادري. جميع الحقوق محفوظة.</p>
+        <p data-key="footer">© 2026 المعلم لحسن القادري. جميع الحقوق محفوظة.</p>
         <div style="display:flex; gap:15px; align-items:center;">
-            <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن" target="_blank" style="color:#25D366; font-size:1.4rem;" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن" target="_blank" style="color:#25D366; font-size:1.4rem;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="#" style="color:white; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
@@ -668,6 +717,124 @@
         const GH_REPO = "Lkdadri-lahssan";
         const GH_TOKEN = "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";
         const DATA_FILE = "data.json";
+
+        // نصوص اللغات المتعددة
+        const translations = {
+            ar: {
+                logo: "لحسن القادري",
+                nav_home: "الرئيسية",
+                nav_gallery: "الرواق",
+                nav_shop: "المتجر",
+                nav_contact: "اتصل بنا",
+                admin_btn: "استوديو الإدارة",
+                hero_title: "إبداع الخزف الحديث",
+                bio_title: "السيرة الذاتية للمعلم القادري",
+                bio_content: "بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر.",
+                back: "رجوع",
+                gallery_title: "الرواق الفني",
+                shop_title: "المتجر الحصري",
+                contact_title: "تواصل معنا",
+                whatsapp_heading: "للطلب والاستفسار الفوري عن المنتجات",
+                whatsapp_desc: "يسعد المعلم لحسن القادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.",
+                whatsapp_btn_text: "تواصل عبر الواتساب (+212 612-112248)",
+                form_prompt: "أو اترك رسالتك السريعة هنا:",
+                placeholder_name: "الاسم الكامل",
+                placeholder_msg: "اكتب استفسارك هنا...",
+                send_btn: "إرسال عبر الواتساب",
+                order_whatsapp: "طلب عبر واتساب",
+                footer: "© 2026 المعلم لحسن القادري. جميع الحقوق محفوظة.",
+                dir: "rtl"
+            },
+            fr: {
+                logo: "Lahcen El Qadiri",
+                nav_home: "Accueil",
+                nav_gallery: "Galerie",
+                nav_shop: "Boutique",
+                nav_contact: "Contact",
+                admin_btn: "Studio Admin",
+                hero_title: "L'Art de la Céramique Moderne",
+                bio_title: "Biographie du Maître El Qadiri",
+                bio_content: "Entre les plis de l'argile et les secrets du feu est née l'histoire de Maître Lahcen El Qadiri. Un artisan d'exception qui insuffle une âme à chaque création, alliant l'authenticité marocaine à la modernité la plus raffinée.",
+                back: "Retour",
+                gallery_title: "Galerie d'Art",
+                shop_title: "Boutique Exclusive",
+                contact_title: "Contactez-nous",
+                whatsapp_heading: "Commandes et Informations Directes",
+                whatsapp_desc: "Maître Lahcen El Qadiri est à votre disposition pour répondre à toutes vos demandes via WhatsApp.",
+                whatsapp_btn_text: "Contacter sur WhatsApp (+212 612-112248)",
+                form_prompt: "Ou laissez votre message ici :",
+                placeholder_name: "Nom complet",
+                placeholder_msg: "Écrivez votre message ici...",
+                send_btn: "Envoyer via WhatsApp",
+                order_whatsapp: "Commander via WhatsApp",
+                footer: "© 2026 Maître Lahcen El Qadiri. Tous droits réservés.",
+                dir: "ltr"
+            },
+            en: {
+                logo: "Lahcen El Qadiri",
+                nav_home: "Home",
+                nav_gallery: "Gallery",
+                nav_shop: "Shop",
+                nav_contact: "Contact",
+                admin_btn: "Admin Studio",
+                hero_title: "Modern Pottery & Ceramic Art",
+                bio_title: "Biography of Master El Qadiri",
+                bio_content: "Between the folds of clay and the secrets of fire, the journey of Master Lahcen El Qadiri was born. A master craftsman who pours his soul into every piece, transforming raw clay into visual poetry of Moroccan elegance.",
+                back: "Back",
+                gallery_title: "Art Gallery",
+                shop_title: "Exclusive Shop",
+                contact_title: "Contact Us",
+                whatsapp_heading: "Instant Inquiries & Custom Orders",
+                whatsapp_desc: "Master Lahcen El Qadiri is pleased to answer your questions and custom orders directly on WhatsApp.",
+                whatsapp_btn_text: "Contact on WhatsApp (+212 612-112248)",
+                form_prompt: "Or leave a quick message here:",
+                placeholder_name: "Full Name",
+                placeholder_msg: "Write your message here...",
+                send_btn: "Send via WhatsApp",
+                order_whatsapp: "Order via WhatsApp",
+                footer: "© 2026 Master Lahcen El Qadiri. All rights reserved.",
+                dir: "ltr"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function changeLang(lang) {
+            if (!translations[lang]) return;
+            currentLang = lang;
+            const t = translations[lang];
+
+            // تحديث الاتجاه ولغة المستند
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('dir', t.dir);
+
+            // تحديث النصوص العادية
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (t[key]) {
+                    el.innerText = t[key];
+                }
+            });
+
+            // تحديث حقول الإدخال Placeholders
+            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-key-placeholder');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
+
+            // تحديث أزرار اللغات
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`lang-${lang}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // حفظ اللغة المفضلة
+            localStorage.setItem('site_lang', lang);
+
+            // إعادة عرض بطاقات المتجر لتحديث زر الطلب
+            renderAllMedia();
+        }
 
         const defaultTheme = {
             bg: "#FEFAE0",
@@ -685,8 +852,8 @@
             theme: { ...defaultTheme },
             coreTexts: {
                 heroTitle: "إبداع الخزف الحديث",
-                bioTitle: "السيرة الذاتية للمعلم القدادري",
-                bioContent: "بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القدادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القدادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر."
+                bioTitle: "السيرة الذاتية للمعلم القادري",
+                bioContent: "بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر."
             },
             customTexts: [],
             mediaItems: [
@@ -719,7 +886,6 @@
             { title: "'Changa', sans-serif", main: "'Almarai', sans-serif" }
         ];
 
-        let pId = 1;
         baseThemes.forEach(bt => {
             for(let i = 0; i < 10; i++) {
                 generatedPresets.push({
@@ -732,7 +898,6 @@
                     titleFont: fontCombos[i % 3].title,
                     mainFont: fontCombos[i % 3].main
                 });
-                pId++;
             }
         });
 
@@ -798,13 +963,15 @@
         async function saveThemeSettings() {
             siteData.theme = { ...currentTheme };
             await saveToGitHub("تحديث وتخصيص مظهر الموقع والألوان");
-            alert("تم حفظ المظهر الجديد ونشره بنجاح لجميع الزوار!");
+            alert(currentLang === 'ar' ? "تم حفظ المظهر الجديد ونشره بنجاح لجميع الزوار!" : (currentLang === 'fr' ? "Apparence enregistrée avec succès !" : "Theme saved successfully!"));
         }
 
         function renderTexts() {
-            document.getElementById('dyn-hero-title').innerText = siteData.coreTexts.heroTitle;
-            document.getElementById('dyn-bio-title').innerText = siteData.coreTexts.bioTitle;
-            document.getElementById('dyn-bio-content').innerText = siteData.coreTexts.bioContent;
+            if (currentLang === 'ar') {
+                document.getElementById('dyn-hero-title').innerText = siteData.coreTexts.heroTitle;
+                document.getElementById('dyn-bio-title').innerText = siteData.coreTexts.bioTitle;
+                document.getElementById('dyn-bio-content').innerText = siteData.coreTexts.bioContent;
+            }
 
             document.getElementById('edit-hero-title').value = siteData.coreTexts.heroTitle;
             document.getElementById('edit-bio-title').value = siteData.coreTexts.bioTitle;
@@ -860,7 +1027,7 @@
             siteData.coreTexts.bioContent = document.getElementById('edit-bio-content').value;
             renderTexts();
             await saveToGitHub("تحديث النصوص الأساسية للموقع");
-            alert("تم حفظ النصوص ونشرها لجميع الزوار!");
+            alert("تم حفظ النصوص ونشرها بنجاح!");
         }
 
         async function addNewCustomText() {
@@ -910,6 +1077,7 @@
         }
 
         function renderAllMedia() {
+            const orderText = translations[currentLang]?.order_whatsapp || "طلب عبر واتساب";
             ['home', 'gallery', 'shop'].forEach(page => {
                 const container = document.getElementById(page + '-grid');
                 if(!container) return;
@@ -925,7 +1093,7 @@
                         : `<img src="${item.src}" alt="${item.title || ''}">`;
 
                     let shopBtn = page === 'shop' 
-                        ? `<a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20طلب%20واستفسار%20عن%20المنتج:%20${encodeURIComponent(item.title || 'منتج خزفي')}" target="_blank" class="nav-item" style="justify-content:center; margin-top:10px; text-decoration:none; background:#25D366; color:white;"><i class="fab fa-whatsapp"></i> <span>طلب عبر واتساب</span></a>` 
+                        ? `<a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20طلب%20واستفسار%20عن%20المنتج:%20${encodeURIComponent(item.title || 'منتج خزفي')}" target="_blank" class="nav-item" style="justify-content:center; margin-top:10px; text-decoration:none; background:#25D366; color:white;"><i class="fab fa-whatsapp"></i> <span>${orderText}</span></a>` 
                         : '';
 
                     box.innerHTML = `
@@ -943,7 +1111,7 @@
             e.preventDefault();
             const name = document.getElementById('contact-name').value;
             const msg = document.getElementById('contact-msg').value;
-            const fullMsg = `السلام عليكم المعلم لحسن القدادري، أنا ${name}.\nرسالتي: ${msg}`;
+            const fullMsg = `السلام عليكم المعلم لحسن القادري، أنا ${name}.\nالرسالة: ${msg}`;
             window.open(`https://wa.me/212612112248?text=${encodeURIComponent(fullMsg)}`, '_blank');
         }
 
@@ -1082,7 +1250,7 @@
                     ${preview}
                     <div class="edit-item-info">
                         <input type="text" id="title-input-${item.id}" value="${item.title || ''}" placeholder="عنوان العنصر" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
-                        <button class="btn-action-save" onclick="updateItemTitle(${item.id})"><i class="fas fa-check"></i> حفظ التعديل على السيرفر</button>
+                        <button class="btn-action-save" onclick="updateItemTitle(${item.id})"><i class="fas fa-check"></i> حفظ التعديل</button>
                     </div>
                     <button class="btn-action-delete" onclick="deleteItem(${item.id})"><i class="fas fa-trash"></i> مسح</button>
                 `;
@@ -1097,7 +1265,7 @@
                 item.title = newTitle;
                 renderAllMedia();
                 await saveToGitHub(`تعديل عنوان العنصر #${id}`);
-                alert("تم تحديث العنوان في GitHub لجميع الزوار!");
+                alert("تم تحديث العنوان بنجاح!");
             }
         }
 
@@ -1107,13 +1275,13 @@
                 renderAllMedia();
                 renderEditList();
                 await saveToGitHub(`حذف عنصر #${id}`);
-                alert("تم حذف العنصر وتحديث الموقع لجميع الزوار.");
+                alert("تم حذف العنصر بنجاح.");
             }
         }
 
         function openShieldAdmin() {
             const code = prompt("يرجى إدخال الرمز السري للوصول:");
-            if (code === "Marrakech1") {
+            if (code === "Marrakech1" || code === "Marrakech 1") {
                 renderEditList();
                 renderTexts();
                 document.getElementById('shieldModal').style.display = "flex";
@@ -1158,6 +1326,10 @@
             renderAllMedia();
             renderTexts();
             fetchGitHubData();
+
+            // استرجاع لغة المستخدم السابقة
+            const savedLang = localStorage.getItem('site_lang') || 'ar';
+            changeLang(savedLang);
         };
     </script>
 </body>
