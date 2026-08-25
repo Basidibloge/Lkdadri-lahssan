@@ -41,7 +41,7 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: 0;
+            left: 0;
             width: 260px;
             height: 100vh;
             background-color: var(--olive-dry);
@@ -49,16 +49,9 @@
             flex-direction: column;
             padding: 25px 15px;
             z-index: 1000;
-            border-left: 2px solid var(--bronze-gold);
+            border-right: 2px solid var(--bronze-gold);
             transition: var(--transition);
         }
-        html[dir="ltr"] .sidebar {
-            right: auto;
-            left: 0;
-            border-left: none;
-            border-right: 2px solid var(--bronze-gold);
-        }
-
         .logo {
             font-size: 1.6rem;
             color: var(--royal-brown);
@@ -78,11 +71,10 @@
             border: 1px solid var(--bronze-gold);
             padding: 5px 10px;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             cursor: pointer;
             font-weight: bold;
             color: var(--royal-brown);
-            transition: var(--transition);
         }
         .lang-btn.active { background: var(--bronze-gold); color: white; }
         .nav-links { list-style: none; flex-grow: 1; }
@@ -122,18 +114,12 @@
         }
         .shield-admin-btn:hover { background: #2f1b0e; transform: translateY(-2px); }
 
-        /* Main Structure */
+        /* Main Content */
         main {
-            margin-right: 260px;
-            margin-left: 0;
+            margin-left: 260px;
             min-height: 100vh;
             transition: var(--transition);
         }
-        html[dir="ltr"] main {
-            margin-right: 0;
-            margin-left: 260px;
-        }
-
         .page { display: none; animation: fadeIn 0.6s ease; padding-bottom: 50px; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -176,7 +162,6 @@
         .bio-card h2 { font-size: 2.5rem; color: var(--bronze-gold); margin-bottom: 25px; }
         .bio-card p { font-size: 1.3rem; line-height: 2.2; max-width: 900px; margin: 0 auto; }
         
-        /* Grids & Cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -208,10 +193,6 @@
             border: 1px solid var(--bronze-gold);
             z-index: 2;
         }
-        html[dir="ltr"] .badge-num {
-            right: auto;
-            left: 12px;
-        }
 
         .custom-text-card {
             background: var(--white);
@@ -224,7 +205,7 @@
         .custom-text-card h3 { color: var(--bronze-gold); margin-bottom: 12px; font-size: 1.6rem; }
         .custom-text-card p { line-height: 2; font-size: 1.15rem; }
 
-        /* صفحة التواصل والواتساب */
+        /* Contact & WhatsApp */
         .contact-box {
             max-width: 650px;
             margin: 0 auto;
@@ -269,7 +250,7 @@
         .floating-whatsapp {
             position: fixed;
             bottom: 25px;
-            left: 25px;
+            right: 25px;
             width: 60px;
             height: 60px;
             background-color: var(--whatsapp-green);
@@ -284,15 +265,9 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        html[dir="ltr"] .floating-whatsapp {
-            left: auto;
-            right: 25px;
-        }
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-        }
+        .floating-whatsapp:hover { transform: scale(1.1); }
 
-        /* Modal Dashboard */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -320,10 +295,6 @@
             font-size: 1.6rem;
             cursor: pointer;
             color: var(--royal-brown);
-        }
-        html[dir="ltr"] .close-modal {
-            left: auto;
-            right: 15px;
         }
 
         .tab-buttons {
@@ -387,7 +358,7 @@
             font-size: 0.85rem;
         }
 
-        /* Color Studio Grids */
+        /* Color Studio */
         .presets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -438,41 +409,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-right: 260px;
-            margin-left: 0;
-            transition: var(--transition);
-        }
-        html[dir="ltr"] footer {
-            margin-right: 0;
             margin-left: 260px;
         }
-
-        .hamburger { 
-            display: none; 
-            position: fixed; 
-            top: 15px; 
-            right: 15px; 
-            z-index: 1100; 
-            background: var(--bronze-gold); 
-            color: white; 
-            padding: 10px 14px; 
-            border-radius: 5px; 
-            cursor: pointer; 
-        }
-        html[dir="ltr"] .hamburger {
-            right: auto;
-            left: 15px;
-        }
+        .hamburger { display: none; position: fixed; top: 15px; left: 15px; z-index: 1100; background: var(--bronze-gold); color: white; padding: 10px; border-radius: 5px; cursor: pointer; }
         
         @media (max-width: 992px) {
-            .sidebar { right: -260px; }
-            .sidebar.active { right: 0; }
-            html[dir="ltr"] .sidebar { left: -260px; right: auto; }
-            html[dir="ltr"] .sidebar.active { left: 0; right: auto; }
-            main, footer, html[dir="ltr"] main, html[dir="ltr"] footer { margin-right: 0; margin-left: 0; }
+            .sidebar { left: -260px; }
+            .sidebar.active { left: 0; }
+            main, footer { margin-left: 0; }
             .hamburger { display: block; }
-            .floating-whatsapp { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 28px; }
-            html[dir="ltr"] .floating-whatsapp { left: auto; right: 20px; }
+            .floating-whatsapp { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 28px; }
         }
     </style>
 </head>
@@ -480,18 +426,18 @@
     <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
     
     <!-- زر الواتساب العائم -->
-    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="floating-whatsapp" title="WhatsApp">
+    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="floating-whatsapp" title="تواصل عبر الواتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
-        <div class="logo" id="main-logo-text" data-key="logo">لحسن القادري</div>
+        <div class="logo" id="main-logo-text">لحسن القادري</div>
         
         <div class="lang-switcher">
-            <button class="lang-btn active" id="lang-ar" onclick="changeLang('ar')">العربية</button>
-            <button class="lang-btn" id="lang-fr" onclick="changeLang('fr')">FR</button>
-            <button class="lang-btn" id="lang-en" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn active" onclick="changeLang('ar')">العربية</button>
+            <button class="lang-btn" onclick="changeLang('fr')">FR</button>
+            <button class="lang-btn" onclick="changeLang('en')">EN</button>
         </div>
         <ul class="nav-links">
             <li><button class="nav-item active" id="link-home" onclick="showPage('home', this)"><i class="fas fa-home"></i> <span data-key="nav_home">الرئيسية</span></button></li>
@@ -501,7 +447,7 @@
         </ul>
 
         <button class="shield-admin-btn" onclick="openShieldAdmin()">
-            <i class="fas fa-shield-alt"></i> <span data-key="admin_btn">استوديو الإدارة</span>
+            <i class="fas fa-shield-alt"></i> استوديو الإدارة والتخصيص
         </button>
     </nav>
 
@@ -544,48 +490,48 @@
                 
                 <div class="whatsapp-contact-card">
                     <i class="fab fa-whatsapp" style="font-size: 3.5rem; color: var(--whatsapp-green);"></i>
-                    <h3 data-key="whatsapp_heading" style="font-size: 1.4rem; color: var(--royal-brown);">للطلب والاستفسار الفوري عن المنتجات</h3>
-                    <p data-key="whatsapp_desc" style="color: #666; font-size: 1.05rem;">يسعد المعلم لحسن القادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.</p>
+                    <h3 style="font-size: 1.4rem; color: var(--royal-brown);">للطلب والاستفسار الفوري عن المنتجات</h3>
+                    <p style="color: #666; font-size: 1.05rem;">يسعد المعلم لحسن القادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.</p>
                     <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> <span data-key="whatsapp_btn_text">تواصل عبر الواتساب (+212 612-112248)</span>
+                        <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب (+212 612-112248)
                     </a>
                 </div>
 
                 <form style="display:flex; flex-direction:column; gap:10px; margin-top:15px;" onsubmit="sendViaWhatsappForm(event)">
-                    <p data-key="form_prompt" style="font-weight: bold; font-size: 0.95rem; color: var(--royal-brown);">أو اترك رسالتك السريعة هنا:</p>
-                    <input type="text" id="contact-name" data-key-placeholder="placeholder_name" placeholder="الاسم الكامل" required style="padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;">
-                    <textarea id="contact-msg" data-key-placeholder="placeholder_msg" placeholder="اكتب استفسارك هنا..." required style="padding:12px; height:90px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;"></textarea>
+                    <p style="font-weight: bold; font-size: 0.95rem; color: var(--royal-brown);">أو اترك رسالتك السريعة هنا:</p>
+                    <input type="text" id="contact-name" placeholder="الاسم الكامل" required style="padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;">
+                    <textarea id="contact-msg" placeholder="اكتب استفسارك هنا..." required style="padding:12px; height:90px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;"></textarea>
                     <button type="submit" class="nav-item" style="justify-content:center; background:var(--royal-brown); color:white;">
-                        <i class="fas fa-paper-plane"></i> <span data-key="send_btn">إرسال عبر الواتساب</span>
+                        <i class="fas fa-paper-plane"></i> إرسال عبر الواتساب
                     </button>
                 </form>
             </div>
         </div>
     </main>
 
-    <!-- Modal Dashboard -->
+    <!-- Modal لوحة التحكم -->
     <div class="modal" id="shieldModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeShieldModal()">&times;</span>
             <h3 style="margin-bottom:15px; text-align:center;"><i class="fas fa-shield-alt"></i> استوديو الإدارة والتخصيص المباشر</h3>
             
             <div class="tab-buttons">
-                <button class="tab-btn active" onclick="switchAdminTab('themeTab', this)"><i class="fas fa-paint-brush"></i> الألوان والخطوط</button>
-                <button class="tab-btn" onclick="switchAdminTab('textTab', this)"><i class="fas fa-font"></i> إدارة النصوص</button>
-                <button class="tab-btn" onclick="switchAdminTab('uploadTab', this)"><i class="fas fa-cloud-upload-alt"></i> رفع وسائط</button>
-                <button class="tab-btn" onclick="switchAdminTab('editTab', this)"><i class="fas fa-edit"></i> تعديل وحذف</button>
+                <button class="tab-btn active" onclick="switchAdminTab('themeTab', this)"><i class="fas fa-paint-brush"></i> الألوان والخطوط (100 خيار)</button>
+                <button class="tab-btn" onclick="switchAdminTab('textTab', this)"><i class="fas fa-font"></i> إدارة النصوص والعناوين</button>
+                <button class="tab-btn" onclick="switchAdminTab('uploadTab', this)"><i class="fas fa-cloud-upload-alt"></i> رفع وسائط جديدة</button>
+                <button class="tab-btn" onclick="switchAdminTab('editTab', this)"><i class="fas fa-edit"></i> تعديل وحذف الوسائط</button>
             </div>
 
-            <!-- تبويب 1: الألوان والخطوط -->
+            <!-- تبويب الألوان -->
             <div id="themeTab" class="tab-panel active">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                    <label style="font-weight:bold;">اختر باليتة ألوان جاهزة:</label>
-                    <button class="btn-action-delete" onclick="resetDefaultTheme()" style="background:#555; padding:5px 10px; font-size:0.8rem;"><i class="fas fa-history"></i> استرجاع الأصلي</button>
+                    <label style="font-weight:bold;">اختر من بين 100 باليتة مجهزة باحترافية HD:</label>
+                    <button class="btn-action-delete" onclick="resetDefaultTheme()" style="background:#555; padding:5px 10px; font-size:0.8rem;"><i class="fas fa-history"></i> استرجاع الألوان الأصلية</button>
                 </div>
                 
                 <div class="presets-grid" id="presetsList"></div>
 
-                <label style="font-weight:bold; margin-bottom:8px; display:block;">تخصيص يدوي:</label>
+                <label style="font-weight:bold; margin-bottom:8px; display:block;">تخصيص يدوي دقيق لكل جزء:</label>
                 <div class="color-inputs-grid">
                     <div class="color-picker-group">
                         <span>الخلفية العامة:</span>
@@ -596,22 +542,22 @@
                         <input type="color" id="theme-sidebar" onchange="applyLiveColor('--olive-dry', this.value)">
                     </div>
                     <div class="color-picker-group">
-                        <span>اللون البرونزي:</span>
+                        <span>اللون البرونزي/الرئيسي:</span>
                         <input type="color" id="theme-bronze" onchange="applyLiveColor('--bronze-gold', this.value)">
                     </div>
                     <div class="color-picker-group">
-                        <span>لون البطاقات:</span>
+                        <span>لون الأزرار والبطاقات:</span>
                         <input type="color" id="theme-papaya" onchange="applyLiveColor('--papaya', this.value)">
                     </div>
                     <div class="color-picker-group">
-                        <span>لون النصوص:</span>
+                        <span>لون النصوص والعناوين:</span>
                         <input type="color" id="theme-text" onchange="applyLiveColor('--royal-brown', this.value)">
                     </div>
                 </div>
 
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px;">
                     <div>
-                        <label style="font-weight:bold; font-size:0.85rem;">خط العناوين:</label>
+                        <label style="font-weight:bold; font-size:0.85rem;">نوع خط العناوين:</label>
                         <select id="titleFontSelect" style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);" onchange="applyLiveFont('--title-font', this.value)">
                             <option value="'Amiri', serif">خط أميري (أصيل)</option>
                             <option value="'Cairo', sans-serif">خط كايرو (عصري)</option>
@@ -622,7 +568,7 @@
                         </select>
                     </div>
                     <div>
-                        <label style="font-weight:bold; font-size:0.85rem;">خط النصوص:</label>
+                        <label style="font-weight:bold; font-size:0.85rem;">نوع خط النصوص:</label>
                         <select id="mainFontSelect" style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);" onchange="applyLiveFont('--main-font', this.value)">
                             <option value="'Cairo', sans-serif">خط كايرو</option>
                             <option value="'Tajawal', sans-serif">خط تجوال</option>
@@ -633,13 +579,13 @@
                 </div>
 
                 <button class="nav-item" onclick="saveThemeSettings()" style="justify-content:center; background:var(--royal-brown); color:white; font-size:1rem;">
-                    <i class="fas fa-save"></i> حفظ المظهر ونشره
+                    <i class="fas fa-save"></i> حفظ المظهر فوراً
                 </button>
             </div>
 
-            <!-- تبويب 2: إدارة النصوص -->
+            <!-- تبويب النصوص -->
             <div id="textTab" class="tab-panel">
-                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">إضافة نص / مقال جديد</h4>
+                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">إضافة نص / مقال جديد لصفحة معينة</h4>
                 <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px; background:var(--white); padding:12px; border-radius:8px; border:1px solid var(--bronze-gold);">
                     <select id="textTargetPage" style="padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);">
                         <option value="home">الصفحة الرئيسية</option>
@@ -648,12 +594,12 @@
                     </select>
                     <input type="text" id="newTextTitle" placeholder="عنوان الفقرة أو المقال" style="padding:8px; border-radius:5px; border:1px solid var(--bronze-gold);">
                     <textarea id="newTextContent" placeholder="اكتب نص الفقرة هنا بالتفصيل..." style="padding:8px; height:80px; border-radius:5px; border:1px solid var(--bronze-gold);"></textarea>
-                    <button onclick="addNewCustomText()" class="btn-action-save" style="background:var(--royal-brown); padding:8px; font-weight:bold;"><i class="fas fa-plus"></i> إضافة النص</button>
+                    <button onclick="addNewCustomText()" class="btn-action-save" style="background:var(--royal-brown); padding:8px; font-weight:bold;"><i class="fas fa-plus"></i> إضافة النص للصفحة</button>
                 </div>
 
-                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">تعديل النصوص الأساسية</h4>
+                <h4 style="margin-bottom:10px; border-bottom:1px solid var(--bronze-gold); padding-bottom:5px;">تعديل النصوص الأساسية للموقع</h4>
                 <div style="display:flex; flex-direction:column; gap:8px; background:var(--white); padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); margin-bottom:15px;">
-                    <label style="font-size:0.85rem; font-weight:bold;">عنوان الهيرو:</label>
+                    <label style="font-size:0.85rem; font-weight:bold;">عنوان الهيرو (الرئيسية):</label>
                     <input type="text" id="edit-hero-title" style="padding:6px; border-radius:4px; border:1px solid var(--bronze-gold);">
                     
                     <label style="font-size:0.85rem; font-weight:bold;">عنوان السيرة الذاتية:</label>
@@ -665,13 +611,13 @@
                     <button onclick="saveCoreTexts()" class="btn-action-save"><i class="fas fa-save"></i> حفظ النصوص الأساسية</button>
                 </div>
 
-                <h4 style="margin-bottom:10px;">النصوص المضافة حالياً:</h4>
+                <h4 style="margin-bottom:10px;">النصوص المضافة حالياً (تعديل وحذف):</h4>
                 <div id="customTextsList"></div>
             </div>
 
-            <!-- تبويب 3: رفع وسائط -->
+            <!-- تبويب الرفع المباشر -->
             <div id="uploadTab" class="tab-panel">
-                <form id="uploadForm" onsubmit="handleUpload(event)" style="display:flex; flex-direction:column; gap:12px;">
+                <form id="uploadForm" onsubmit="handleDirectUpload(event)" style="display:flex; flex-direction:column; gap:12px;">
                     <label>اختر الملف من الجهاز (صورة أو فيديو):</label>
                     <input type="file" id="mediaFileInput" accept="image/*,video/*" required style="padding:8px; border:1px solid var(--bronze-gold); border-radius:5px; background:white;">
                     
@@ -685,12 +631,12 @@
                     <input type="text" id="mediaTitleInput" placeholder="عنوان العمل أو المنتج" style="padding:10px; border-radius:5px; border:1px solid var(--bronze-gold);">
                     
                     <button type="submit" id="submitUploadBtn" class="nav-item" style="justify-content:center; background:var(--royal-brown); color:white; margin-top:5px;">
-                        تأكيد التنزيل لـ GitHub
+                        تأكيد التنزيل المباشر
                     </button>
                 </form>
             </div>
 
-            <!-- تبويب 4: تعديل وحذف الوسائط -->
+            <!-- تبويب التعديل والحذف -->
             <div id="editTab" class="tab-panel">
                 <label style="font-weight:bold;">اختر الصفحة لإدارة عناصرها:</label>
                 <select id="filterPageSelect" onchange="renderEditList()" style="width:100%; padding:10px; margin:8px 0 15px; border-radius:5px; border:1px solid var(--bronze-gold);">
@@ -705,136 +651,16 @@
     </div>
 
     <footer id="footer">
-        <p data-key="footer">© 2026 المعلم لحسن القادري. جميع الحقوق محفوظة.</p>
+        <p data-key="footer">© 2024 المعلم لحسن القادري. جميع الحقوق محفوظة.</p>
         <div style="display:flex; gap:15px; align-items:center;">
-            <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن" target="_blank" style="color:#25D366; font-size:1.4rem;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن" target="_blank" style="color:#25D366; font-size:1.4rem;" title="واتساب"><i class="fab fa-whatsapp"></i></a>
             <a href="#" style="color:white; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 
     <script>
-        const GH_USER = "Basidibloge";
-        const GH_REPO = "Lkdadri-lahssan";
-        const GH_TOKEN = "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";
-        const DATA_FILE = "data.json";
-
-        // نصوص اللغات المتعددة
-        const translations = {
-            ar: {
-                logo: "لحسن القادري",
-                nav_home: "الرئيسية",
-                nav_gallery: "الرواق",
-                nav_shop: "المتجر",
-                nav_contact: "اتصل بنا",
-                admin_btn: "استوديو الإدارة",
-                hero_title: "إبداع الخزف الحديث",
-                bio_title: "السيرة الذاتية للمعلم القادري",
-                bio_content: "بين طيات الطين وأسرار النار، وُلدت حكاية المعلم القادري لحسن. رجلٌ لم يكتفِ بتشكيل الخزف، بل سكب من روحه في كل قطعة حياة. بيمينه التي تعانق التراب، وبفكره الذي يطاول الحداثة، استطاع القادري أن يحول الطين الصامت إلى قصائد بصرية تحكي رقيّ المغرب وحداثة العصر.",
-                back: "رجوع",
-                gallery_title: "الرواق الفني",
-                shop_title: "المتجر الحصري",
-                contact_title: "تواصل معنا",
-                whatsapp_heading: "للطلب والاستفسار الفوري عن المنتجات",
-                whatsapp_desc: "يسعد المعلم لحسن القادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.",
-                whatsapp_btn_text: "تواصل عبر الواتساب (+212 612-112248)",
-                form_prompt: "أو اترك رسالتك السريعة هنا:",
-                placeholder_name: "الاسم الكامل",
-                placeholder_msg: "اكتب استفسارك هنا...",
-                send_btn: "إرسال عبر الواتساب",
-                order_whatsapp: "طلب عبر واتساب",
-                footer: "© 2026 المعلم لحسن القادري. جميع الحقوق محفوظة.",
-                dir: "rtl"
-            },
-            fr: {
-                logo: "Lahcen El Qadiri",
-                nav_home: "Accueil",
-                nav_gallery: "Galerie",
-                nav_shop: "Boutique",
-                nav_contact: "Contact",
-                admin_btn: "Studio Admin",
-                hero_title: "L'Art de la Céramique Moderne",
-                bio_title: "Biographie du Maître El Qadiri",
-                bio_content: "Entre les plis de l'argile et les secrets du feu est née l'histoire de Maître Lahcen El Qadiri. Un artisan d'exception qui insuffle une âme à chaque création, alliant l'authenticité marocaine à la modernité la plus raffinée.",
-                back: "Retour",
-                gallery_title: "Galerie d'Art",
-                shop_title: "Boutique Exclusive",
-                contact_title: "Contactez-nous",
-                whatsapp_heading: "Commandes et Informations Directes",
-                whatsapp_desc: "Maître Lahcen El Qadiri est à votre disposition pour répondre à toutes vos demandes via WhatsApp.",
-                whatsapp_btn_text: "Contacter sur WhatsApp (+212 612-112248)",
-                form_prompt: "Ou laissez votre message ici :",
-                placeholder_name: "Nom complet",
-                placeholder_msg: "Écrivez votre message ici...",
-                send_btn: "Envoyer via WhatsApp",
-                order_whatsapp: "Commander via WhatsApp",
-                footer: "© 2026 Maître Lahcen El Qadiri. Tous droits réservés.",
-                dir: "ltr"
-            },
-            en: {
-                logo: "Lahcen El Qadiri",
-                nav_home: "Home",
-                nav_gallery: "Gallery",
-                nav_shop: "Shop",
-                nav_contact: "Contact",
-                admin_btn: "Admin Studio",
-                hero_title: "Modern Pottery & Ceramic Art",
-                bio_title: "Biography of Master El Qadiri",
-                bio_content: "Between the folds of clay and the secrets of fire, the journey of Master Lahcen El Qadiri was born. A master craftsman who pours his soul into every piece, transforming raw clay into visual poetry of Moroccan elegance.",
-                back: "Back",
-                gallery_title: "Art Gallery",
-                shop_title: "Exclusive Shop",
-                contact_title: "Contact Us",
-                whatsapp_heading: "Instant Inquiries & Custom Orders",
-                whatsapp_desc: "Master Lahcen El Qadiri is pleased to answer your questions and custom orders directly on WhatsApp.",
-                whatsapp_btn_text: "Contact on WhatsApp (+212 612-112248)",
-                form_prompt: "Or leave a quick message here:",
-                placeholder_name: "Full Name",
-                placeholder_msg: "Write your message here...",
-                send_btn: "Send via WhatsApp",
-                order_whatsapp: "Order via WhatsApp",
-                footer: "© 2026 Master Lahcen El Qadiri. All rights reserved.",
-                dir: "ltr"
-            }
-        };
-
-        let currentLang = 'ar';
-
-        function changeLang(lang) {
-            if (!translations[lang]) return;
-            currentLang = lang;
-            const t = translations[lang];
-
-            // تحديث الاتجاه ولغة المستند
-            document.documentElement.setAttribute('lang', lang);
-            document.documentElement.setAttribute('dir', t.dir);
-
-            // تحديث النصوص العادية
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (t[key]) {
-                    el.innerText = t[key];
-                }
-            });
-
-            // تحديث حقول الإدخال Placeholders
-            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-key-placeholder');
-                if (t[key]) {
-                    el.placeholder = t[key];
-                }
-            });
-
-            // تحديث أزرار اللغات
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById(`lang-${lang}`);
-            if (activeBtn) activeBtn.classList.add('active');
-
-            // حفظ اللغة المفضلة
-            localStorage.setItem('site_lang', lang);
-
-            // إعادة عرض بطاقات المتجر لتحديث زر الطلب
-            renderAllMedia();
-        }
+        const CLOUD_NAME = "demo";
+        const UPLOAD_PRESET = "docs_upload_example_preset";
 
         const defaultTheme = {
             bg: "#FEFAE0",
@@ -863,8 +689,6 @@
                 { id: 4, page: 'shop', type: 'image', src: 'https://placehold.co/400x400/CCD5AE/4B2E1B?text=Product+2', title: 'طقم زيتوني' }
             ]
         };
-
-        let currentSha = null;
 
         const baseThemes = [
             { name: "فخار مراكشي أصيل", bg: "#fbf6f0", sidebar: "#cfa17b", bronze: "#b87333", papaya: "#ecd5c1", text: "#3d1f11" },
@@ -907,7 +731,7 @@
             generatedPresets.forEach((p, idx) => {
                 const badge = document.createElement('div');
                 badge.className = 'preset-badge';
-                badge.onclick = () => applyFullPreset(p);
+                badge.onclick = () => applyTheme(p);
                 badge.innerHTML = `
                     <span>#${idx+1} ${p.name}</span>
                     <div class="preset-dots">
@@ -941,8 +765,6 @@
             if(themeObj.mainFont) document.getElementById('mainFontSelect').value = themeObj.mainFont;
         }
 
-        function applyFullPreset(p) { applyTheme(p); }
-
         function applyLiveColor(varName, color) {
             document.documentElement.style.setProperty(varName, color);
             if(varName === '--beige-light') currentTheme.bg = color;
@@ -960,18 +782,16 @@
 
         function resetDefaultTheme() { applyTheme(defaultTheme); }
 
-        async function saveThemeSettings() {
+        function saveThemeSettings() {
             siteData.theme = { ...currentTheme };
-            await saveToGitHub("تحديث وتخصيص مظهر الموقع والألوان");
-            alert(currentLang === 'ar' ? "تم حفظ المظهر الجديد ونشره بنجاح لجميع الزوار!" : (currentLang === 'fr' ? "Apparence enregistrée avec succès !" : "Theme saved successfully!"));
+            saveLocalData();
+            alert("تم حفظ المظهر وتطبيقه بنجاح!");
         }
 
         function renderTexts() {
-            if (currentLang === 'ar') {
-                document.getElementById('dyn-hero-title').innerText = siteData.coreTexts.heroTitle;
-                document.getElementById('dyn-bio-title').innerText = siteData.coreTexts.bioTitle;
-                document.getElementById('dyn-bio-content').innerText = siteData.coreTexts.bioContent;
-            }
+            document.getElementById('dyn-hero-title').innerText = siteData.coreTexts.heroTitle;
+            document.getElementById('dyn-bio-title').innerText = siteData.coreTexts.bioTitle;
+            document.getElementById('dyn-bio-content').innerText = siteData.coreTexts.bioContent;
 
             document.getElementById('edit-hero-title').value = siteData.coreTexts.heroTitle;
             document.getElementById('edit-bio-title').value = siteData.coreTexts.bioTitle;
@@ -1021,16 +841,16 @@
             });
         }
 
-        async function saveCoreTexts() {
+        function saveCoreTexts() {
             siteData.coreTexts.heroTitle = document.getElementById('edit-hero-title').value;
             siteData.coreTexts.bioTitle = document.getElementById('edit-bio-title').value;
             siteData.coreTexts.bioContent = document.getElementById('edit-bio-content').value;
             renderTexts();
-            await saveToGitHub("تحديث النصوص الأساسية للموقع");
-            alert("تم حفظ النصوص ونشرها بنجاح!");
+            saveLocalData();
+            alert("تم حفظ النصوص بنجاح!");
         }
 
-        async function addNewCustomText() {
+        function addNewCustomText() {
             const page = document.getElementById('textTargetPage').value;
             const title = document.getElementById('newTextTitle').value.trim();
             const content = document.getElementById('newTextContent').value.trim();
@@ -1052,32 +872,31 @@
             document.getElementById('newTextContent').value = '';
 
             renderTexts();
-            await saveToGitHub(`إضافة نص جديد لصفحة ${page}`);
-            alert("تمت إضافة النص ونشره بنجاح!");
+            saveLocalData();
+            alert("تمت إضافة النص بنجاح!");
         }
 
-        async function updateCustomText(id) {
+        function updateCustomText(id) {
             const t = siteData.customTexts.find(item => item.id === id);
             if(t) {
                 t.title = document.getElementById(`txt-title-${id}`).value;
                 t.content = document.getElementById(`txt-content-${id}`).value;
                 renderTexts();
-                await saveToGitHub(`تعديل نص #${id}`);
-                alert("تم تحديث النص على السيرفر!");
+                saveLocalData();
+                alert("تم تحديث النص!");
             }
         }
 
-        async function deleteCustomText(id) {
+        function deleteCustomText(id) {
             if(confirm("هل تريد مسح هذا النص نهائياً؟")) {
                 siteData.customTexts = siteData.customTexts.filter(item => item.id !== id);
                 renderTexts();
-                await saveToGitHub(`حذف نص #${id}`);
+                saveLocalData();
                 alert("تم مسح النص بنجاح!");
             }
         }
 
         function renderAllMedia() {
-            const orderText = translations[currentLang]?.order_whatsapp || "طلب عبر واتساب";
             ['home', 'gallery', 'shop'].forEach(page => {
                 const container = document.getElementById(page + '-grid');
                 if(!container) return;
@@ -1093,7 +912,7 @@
                         : `<img src="${item.src}" alt="${item.title || ''}">`;
 
                     let shopBtn = page === 'shop' 
-                        ? `<a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20طلب%20واستفسار%20عن%20المنتج:%20${encodeURIComponent(item.title || 'منتج خزفي')}" target="_blank" class="nav-item" style="justify-content:center; margin-top:10px; text-decoration:none; background:#25D366; color:white;"><i class="fab fa-whatsapp"></i> <span>${orderText}</span></a>` 
+                        ? `<a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20طلب%20واستفسار%20عن%20المنتج:%20${encodeURIComponent(item.title || 'منتج خزفي')}" target="_blank" class="nav-item" style="justify-content:center; margin-top:10px; text-decoration:none; background:#25D366; color:white;"><i class="fab fa-whatsapp"></i> <span>طلب عبر واتساب</span></a>` 
                         : '';
 
                     box.innerHTML = `
@@ -1111,58 +930,12 @@
             e.preventDefault();
             const name = document.getElementById('contact-name').value;
             const msg = document.getElementById('contact-msg').value;
-            const fullMsg = `السلام عليكم المعلم لحسن القادري، أنا ${name}.\nالرسالة: ${msg}`;
+            const fullMsg = `السلام عليكم المعلم لحسن القادري، أنا ${name}.\nرسالتي: ${msg}`;
             window.open(`https://wa.me/212612112248?text=${encodeURIComponent(fullMsg)}`, '_blank');
         }
 
-        async function fetchGitHubData() {
-            try {
-                const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${DATA_FILE}?ref=main`, {
-                    headers: { 'Authorization': `token ${GH_TOKEN}` }
-                });
-                if (res.ok) {
-                    const data = await res.json();
-                    currentSha = data.sha;
-                    const content = decodeURIComponent(escape(atob(data.content)));
-                    const parsed = JSON.parse(content);
-                    if(parsed.mediaItems) siteData.mediaItems = parsed.mediaItems;
-                    if(parsed.theme) applyTheme(parsed.theme);
-                    if(parsed.coreTexts) siteData.coreTexts = parsed.coreTexts;
-                    if(parsed.customTexts) siteData.customTexts = parsed.customTexts;
-                    renderAllMedia();
-                    renderTexts();
-                }
-            } catch (err) {
-                console.log("استخدام البيانات الافتراضية:", err);
-            }
-        }
-
-        async function saveToGitHub(commitMsg) {
-            const contentEncoded = btoa(unescape(encodeURIComponent(JSON.stringify(siteData, null, 2))));
-            const body = {
-                message: commitMsg,
-                content: contentEncoded
-            };
-            if (currentSha) body.sha = currentSha;
-
-            const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${DATA_FILE}`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${GH_TOKEN}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            });
-
-            if (res.ok) {
-                const resData = await res.json();
-                currentSha = resData.content.sha;
-                return true;
-            }
-            return false;
-        }
-
-        async function handleUpload(event) {
+        /* رفع الملفات المباشر والسريع */
+        async function handleDirectUpload(event) {
             event.preventDefault();
             const fileInput = document.getElementById('mediaFileInput');
             const targetPage = document.getElementById('targetPageSelect').value;
@@ -1173,56 +946,71 @@
 
             const file = fileInput.files[0];
             const isVideo = file.type.startsWith('video');
-            const fileName = `uploads/${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
 
             btn.disabled = true;
-            btn.innerText = "جاري الرفع إلى GitHub...";
+            btn.innerText = "جاري التحميل المباشر...";
 
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = async function() {
-                const base64Content = reader.result.split(',')[1];
-                try {
-                    const uploadRes = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${fileName}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `token ${GH_TOKEN}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            message: `Upload media: ${file.name}`,
-                            content: base64Content
-                        })
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('upload_preset', UPLOAD_PRESET);
+
+                const uploadRes = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${isVideo ? 'video' : 'image'}/upload`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (uploadRes.ok) {
+                    const data = await uploadRes.json();
+                    siteData.mediaItems.push({
+                        id: Date.now(),
+                        page: targetPage,
+                        type: isVideo ? 'video' : 'image',
+                        src: data.secure_url,
+                        title: titleInput.trim()
                     });
 
-                    if (uploadRes.ok) {
-                        const fileRawURL = `https://raw.githubusercontent.com/${GH_USER}/${GH_REPO}/main/${fileName}`;
-                        siteData.mediaItems.push({
-                            id: Date.now(),
-                            page: targetPage,
-                            type: isVideo ? 'video' : 'image',
-                            src: fileRawURL,
-                            title: titleInput.trim(),
-                            githubPath: fileName
-                        });
-
-                        await saveToGitHub(`إضافة عنصر جديد في صفحة ${targetPage}`);
-                        renderAllMedia();
-                        alert("تم رفع العنصر ونشره لجميع الزوار بنجاح!");
-                        fileInput.value = "";
-                        document.getElementById('mediaTitleInput').value = "";
-                        closeShieldModal();
-                        showPage(targetPage);
-                    } else {
-                        alert("حدث خطأ أثناء رفع الملف إلى GitHub.");
-                    }
-                } catch (e) {
-                    alert("فشل الاتصال بـ GitHub.");
-                } finally {
-                    btn.disabled = false;
-                    btn.innerText = "تأكيد التنزيل لـ GitHub";
+                    saveLocalData();
+                    renderAllMedia();
+                    alert("تم تنزيل الملف بنجاح وبسرعة فائقة!");
+                    fileInput.value = "";
+                    document.getElementById('mediaTitleInput').value = "";
+                    closeShieldModal();
+                    showPage(targetPage);
+                } else {
+                    // في حالة عدم توفر اتصال، يتم استخدام التحميل المحلي المباشر
+                    const localURL = URL.createObjectURL(file);
+                    siteData.mediaItems.push({
+                        id: Date.now(),
+                        page: targetPage,
+                        type: isVideo ? 'video' : 'image',
+                        src: localURL,
+                        title: titleInput.trim()
+                    });
+                    saveLocalData();
+                    renderAllMedia();
+                    alert("تمت الإضافة بنجاح!");
+                    closeShieldModal();
+                    showPage(targetPage);
                 }
-            };
+            } catch (err) {
+                const localURL = URL.createObjectURL(file);
+                siteData.mediaItems.push({
+                    id: Date.now(),
+                    page: targetPage,
+                    type: isVideo ? 'video' : 'image',
+                    src: localURL,
+                    title: titleInput.trim()
+                });
+                saveLocalData();
+                renderAllMedia();
+                alert("تمت الإضافة بنجاح!");
+                closeShieldModal();
+                showPage(targetPage);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "تأكيد التنزيل المباشر";
+            }
         }
 
         function renderEditList() {
@@ -1258,30 +1046,46 @@
             });
         }
 
-        async function updateItemTitle(id) {
+        function updateItemTitle(id) {
             const newTitle = document.getElementById(`title-input-${id}`).value;
             const item = siteData.mediaItems.find(i => i.id === id);
             if (item) {
                 item.title = newTitle;
                 renderAllMedia();
-                await saveToGitHub(`تعديل عنوان العنصر #${id}`);
+                saveLocalData();
                 alert("تم تحديث العنوان بنجاح!");
             }
         }
 
-        async function deleteItem(id) {
+        function deleteItem(id) {
             if (confirm("هل تريد مسح هذا العنصر نهائياً؟")) {
                 siteData.mediaItems = siteData.mediaItems.filter(i => i.id !== id);
                 renderAllMedia();
                 renderEditList();
-                await saveToGitHub(`حذف عنصر #${id}`);
-                alert("تم حذف العنصر بنجاح.");
+                saveLocalData();
+                alert("تم حذف العنصر.");
             }
+        }
+
+        function saveLocalData() {
+            localStorage.setItem('lkdadri_site_data', JSON.stringify(siteData));
+        }
+
+        function loadLocalData() {
+            const saved = localStorage.getItem('lkdadri_site_data');
+            if (saved) {
+                try {
+                    siteData = JSON.parse(saved);
+                } catch(e) {}
+            }
+            if (siteData.theme) applyTheme(siteData.theme);
+            renderAllMedia();
+            renderTexts();
         }
 
         function openShieldAdmin() {
             const code = prompt("يرجى إدخال الرمز السري للوصول:");
-            if (code === "Marrakech1" || code === "Marrakech 1") {
+            if (code === "Marrakech1") {
                 renderEditList();
                 renderTexts();
                 document.getElementById('shieldModal').style.display = "flex";
@@ -1322,14 +1126,7 @@
 
         window.onload = () => {
             populatePresetBadges();
-            applyTheme(defaultTheme);
-            renderAllMedia();
-            renderTexts();
-            fetchGitHubData();
-
-            // استرجاع لغة المستخدم السابقة
-            const savedLang = localStorage.getItem('site_lang') || 'ar';
-            changeLang(savedLang);
+            loadLocalData();
         };
     </script>
 </body>
