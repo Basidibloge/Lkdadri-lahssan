@@ -51,11 +51,6 @@
             border-right: 2px solid var(--bronze-gold);
             transition: var(--transition);
         }
-        body[dir="ltr"] .sidebar {
-            left: 0;
-            border-right: 2px solid var(--bronze-gold);
-            border-left: none;
-        }
 
         .logo {
             font-size: 1.6rem;
@@ -76,7 +71,7 @@
             border: 1px solid var(--bronze-gold);
             padding: 5px 10px;
             border-radius: 4px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             cursor: pointer;
             font-weight: bold;
             color: var(--royal-brown);
@@ -124,7 +119,7 @@
             min-height: 100vh;
             transition: var(--transition);
         }
-        .page { display: none; animation: fadeIn 0.6s ease; padding-bottom: 50px; }
+        .page { display: none; animation: fadeIn 0.4s ease; padding-bottom: 50px; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
@@ -432,18 +427,18 @@
 <body id="body" dir="rtl">
     <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
     
-    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="floating-whatsapp" title="WhatsApp">
+    <a href="https://wa.me/212612112248?text=Bonjour" target="_blank" class="floating-whatsapp" title="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
-        <div class="logo" id="main-logo-text" data-key="site_logo">لحسن القادري</div>
+        <div class="logo" id="main-logo-text" data-key="site_logo">المعلم لحسن القادري</div>
         
         <div class="lang-switcher">
-            <button class="lang-btn active" onclick="changeLang('ar')">العربية</button>
-            <button class="lang-btn" onclick="changeLang('fr')">FR</button>
-            <button class="lang-btn" onclick="changeLang('en')">EN</button>
+            <button class="lang-btn active" id="btn-ar" onclick="changeLang('ar')">العربية</button>
+            <button class="lang-btn" id="btn-fr" onclick="changeLang('fr')">FR</button>
+            <button class="lang-btn" id="btn-en" onclick="changeLang('en')">EN</button>
         </div>
         <ul class="nav-links">
             <li><button class="nav-item active" id="link-home" onclick="showPage('home', this)"><i class="fas fa-home"></i> <span data-key="nav_home">الرئيسية</span></button></li>
@@ -498,7 +493,7 @@
                     <i class="fab fa-whatsapp" style="font-size: 3.5rem; color: var(--whatsapp-green);"></i>
                     <h3 data-key="whatsapp_card_title" style="font-size: 1.4rem; color: var(--royal-brown);">للطلب والاستفسار الفوري عن المنتجات</h3>
                     <p data-key="whatsapp_card_desc" style="color: #666; font-size: 1.05rem;">يسعد المعلم لحسن القادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.</p>
-                    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="whatsapp-btn">
+                    <a href="https://wa.me/212612112248" target="_blank" class="whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> <span data-key="whatsapp_btn_label">تواصل عبر الواتساب (+212 612-112248)</span>
                     </a>
                 </div>
@@ -659,7 +654,7 @@
     <footer id="footer">
         <p data-key="footer_text">© 2024 المعلم لحسن القادري. جميع الحقوق محفوظة.</p>
         <div style="display:flex; gap:15px; align-items:center;">
-            <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن" target="_blank" style="color:#25D366; font-size:1.4rem;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/212612112248" target="_blank" style="color:#25D366; font-size:1.4rem;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="#" style="color:white; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
@@ -673,7 +668,7 @@
         const langData = {
             ar: {
                 dir: "rtl",
-                site_logo: "لحسن القادري",
+                site_logo: "المعلم لحسن القادري",
                 nav_home: "الرئيسية",
                 nav_gallery: "الرواق",
                 nav_shop: "المتجر",
@@ -696,7 +691,7 @@
             },
             fr: {
                 dir: "ltr",
-                site_logo: "Lahcen El Qadiri",
+                site_logo: "Maître Lahcen El Qadiri",
                 nav_home: "Accueil",
                 nav_gallery: "Galerie",
                 nav_shop: "Boutique",
@@ -719,7 +714,7 @@
             },
             en: {
                 dir: "ltr",
-                site_logo: "Lahcen El Qadiri",
+                site_logo: "Master Lahcen El Qadiri",
                 nav_home: "Home",
                 nav_gallery: "Gallery",
                 nav_shop: "Shop",
@@ -774,19 +769,32 @@
             ]
         };
 
-        // Automatic Translation API Helper
-        async function translateText(text, targetLang) {
-            if (!text || targetLang === 'ar') return text;
-            try {
-                const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=ar|${targetLang}`);
-                const data = await res.json();
-                if (data && data.responseData && data.responseData.translatedText) {
-                    return data.responseData.translatedText;
-                }
-            } catch (e) {
-                console.error("Translation Error:", e);
+        // قاموس ترجمة الكلمات والعبارات المخصصة والمستقبلية
+        const autoDict = {
+            fr: {
+                "فازة": "Vase", "طقم": "Service", "طين": "Argile", "خزف": "Céramique", "صحن": "Plat",
+                "ديكور": "Décoration", "أصيل": "Authentique", "مغربي": "Marocain", "يدوي": "Fait main",
+                "أباجور": "Abat-jour", "إبريق": "Pichet", "كأس": "Tasse", "زخرفة": "Ornement",
+                "حديث": "Moderne", "تقليدي": "Traditionnel", "هدية": "Cadeau", "مميز": "Spécial"
+            },
+            en: {
+                "فازة": "Vase", "طقم": "Set", "طين": "Clay", "خزف": "Ceramics", "صحن": "Plate",
+                "ديكور": "Decor", "أصيل": "Authentic", "مغربي": "Moroccan", "يدوي": "Handmade",
+                "أباجور": "Lampshade", "إبريق": "Jug", "كأس": "Cup", "زخرفة": "Ornament",
+                "حديث": "Modern", "تقليدي": "Traditional", "هدية": "Gift", "مميز": "Special"
             }
-            return text;
+        };
+
+        function autoTranslate(text, lang) {
+            if (!text || lang === 'ar') return text;
+            let result = text;
+            const dict = autoDict[lang] || {};
+            for (const [arWord, transWord] of Object.entries(dict)) {
+                result = result.replace(new RegExp(arWord, 'g'), transWord);
+            }
+            if (result === text && lang === 'fr') result = `[FR] ${text}`;
+            if (result === text && lang === 'en') result = `[EN] ${text}`;
+            return result;
         }
 
         function changeLang(lang) {
@@ -806,25 +814,35 @@
                 }
             });
 
-            const nameInput = document.getElementById('contact-name');
-            const msgInput = document.getElementById('contact-msg');
-            if (lang === 'fr') {
-                nameInput.placeholder = "Nom complet";
-                msgInput.placeholder = "Écrivez votre message ici...";
-            } else if (lang === 'en') {
-                nameInput.placeholder = "Full Name";
-                msgInput.placeholder = "Type your inquiry here...";
-            } else {
-                nameInput.placeholder = "الاسم الكامل";
-                msgInput.placeholder = "اكتب استفسارك هنا...";
-            }
-
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(b => b.innerText.toLowerCase().includes(lang));
+            const activeBtn = document.getElementById(`btn-${lang}`);
             if (activeBtn) activeBtn.classList.add('active');
 
             renderTexts();
             renderAllMedia();
+        }
+
+        function showPage(pageId, btn) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) targetPage.classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const navBtn = document.getElementById('link-' + pageId);
+                if (navBtn) navBtn.classList.add('active');
+            }
+
+            if (window.innerWidth < 992) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+            window.scrollTo(0,0);
+        }
+
+        function toggleSidebar() { 
+            document.getElementById('sidebar').classList.toggle('active'); 
         }
 
         const baseThemes = [
@@ -987,35 +1005,35 @@
             });
         }
 
-        async function saveCoreTexts() {
+        function saveCoreTexts() {
             const heroAr = document.getElementById('edit-hero-title').value;
             const bioTitleAr = document.getElementById('edit-bio-title').value;
             const bioContentAr = document.getElementById('edit-bio-content').value;
 
             siteData.coreTexts.heroTitle = {
                 ar: heroAr,
-                fr: await translateText(heroAr, 'fr'),
-                en: await translateText(heroAr, 'en')
+                fr: autoTranslate(heroAr, 'fr'),
+                en: autoTranslate(heroAr, 'en')
             };
 
             siteData.coreTexts.bioTitle = {
                 ar: bioTitleAr,
-                fr: await translateText(bioTitleAr, 'fr'),
-                en: await translateText(bioTitleAr, 'en')
+                fr: autoTranslate(bioTitleAr, 'fr'),
+                en: autoTranslate(bioTitleAr, 'en')
             };
 
             siteData.coreTexts.bioContent = {
                 ar: bioContentAr,
-                fr: await translateText(bioContentAr, 'fr'),
-                en: await translateText(bioContentAr, 'en')
+                fr: autoTranslate(bioContentAr, 'fr'),
+                en: autoTranslate(bioContentAr, 'en')
             };
 
             renderTexts();
             saveLocalData();
-            alert("تم حفظ النصوص وترجمتها لجميع اللغات بنجاح!");
+            alert("تم حفظ النصوص وتحديث ترجماتها لجميع اللغات بنجاح!");
         }
 
-        async function addNewCustomText() {
+        function addNewCustomText() {
             const page = document.getElementById('textTargetPage').value;
             const titleAr = document.getElementById('newTextTitle').value.trim();
             const contentAr = document.getElementById('newTextContent').value.trim();
@@ -1025,17 +1043,20 @@
                 return;
             }
 
-            const titleFr = await translateText(titleAr, 'fr');
-            const titleEn = await translateText(titleAr, 'en');
-            const contentFr = await translateText(contentAr, 'fr');
-            const contentEn = await translateText(contentAr, 'en');
-
             if(!siteData.customTexts) siteData.customTexts = [];
             siteData.customTexts.push({
                 id: Date.now(),
                 page: page,
-                title: { ar: titleAr, fr: titleFr, en: titleEn },
-                content: { ar: contentAr, fr: contentFr, en: contentEn }
+                title: { 
+                    ar: titleAr, 
+                    fr: autoTranslate(titleAr, 'fr'), 
+                    en: autoTranslate(titleAr, 'en') 
+                },
+                content: { 
+                    ar: contentAr, 
+                    fr: autoTranslate(contentAr, 'fr'), 
+                    en: autoTranslate(contentAr, 'en') 
+                }
             });
 
             document.getElementById('newTextTitle').value = '';
@@ -1043,10 +1064,10 @@
 
             renderTexts();
             saveLocalData();
-            alert("تمت إضافة النص وترجمته تلقائياً للفرنسية والإنجليزية!");
+            alert("تمت إضافة النص وترجمته فوراً للفرنسية والإنجليزية!");
         }
 
-        async function updateCustomText(id) {
+        function updateCustomText(id) {
             const t = siteData.customTexts.find(item => item.id === id);
             if(t) {
                 const titleAr = document.getElementById(`txt-title-${id}`).value;
@@ -1054,14 +1075,14 @@
 
                 t.title = {
                     ar: titleAr,
-                    fr: await translateText(titleAr, 'fr'),
-                    en: await translateText(titleAr, 'en')
+                    fr: autoTranslate(titleAr, 'fr'),
+                    en: autoTranslate(titleAr, 'en')
                 };
 
                 t.content = {
                     ar: contentAr,
-                    fr: await translateText(contentAr, 'fr'),
-                    en: await translateText(contentAr, 'en')
+                    fr: autoTranslate(contentAr, 'fr'),
+                    en: autoTranslate(contentAr, 'en')
                 };
 
                 renderTexts();
@@ -1132,13 +1153,14 @@
             const isVideo = file.type.startsWith('video');
 
             btn.disabled = true;
-            btn.innerText = "جاري التحميل المباشر والترجمة...";
+            btn.innerText = "جاري التحميل المباشر...";
 
             const titleAr = titleInput;
-            const titleFr = await translateText(titleAr, 'fr');
-            const titleEn = await translateText(titleAr, 'en');
-
-            const titleObj = { ar: titleAr, fr: titleFr, en: titleEn };
+            const titleObj = { 
+                ar: titleAr, 
+                fr: autoTranslate(titleAr, 'fr'), 
+                en: autoTranslate(titleAr, 'en') 
+            };
 
             try {
                 const formData = new FormData();
@@ -1236,14 +1258,14 @@
             });
         }
 
-        async function updateItemTitle(id) {
+        function updateItemTitle(id) {
             const newTitleAr = document.getElementById(`title-input-${id}`).value;
             const item = siteData.mediaItems.find(i => i.id === id);
             if (item) {
                 item.title = {
                     ar: newTitleAr,
-                    fr: await translateText(newTitleAr, 'fr'),
-                    en: await translateText(newTitleAr, 'en')
+                    fr: autoTranslate(newTitleAr, 'fr'),
+                    en: autoTranslate(newTitleAr, 'en')
                 };
                 renderAllMedia();
                 saveLocalData();
@@ -1288,35 +1310,18 @@
             }
         }
 
-        function closeShieldModal() { document.getElementById('shieldModal').style.display = "none"; }
+        function closeShieldModal() { 
+            document.getElementById('shieldModal').style.display = "none"; 
+        }
 
         function switchAdminTab(tabId, btn) {
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
             if (tabId === 'editTab') renderEditList();
             if (tabId === 'textTab') renderTexts();
         }
-
-        function showPage(pageId, btn) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            if(btn) btn.classList.add('active');
-            else {
-                const navBtn = document.getElementById('link-' + pageId);
-                if(navBtn) navBtn.classList.add('active');
-            }
-
-            if(window.innerWidth < 992) {
-                document.getElementById('sidebar').classList.remove('active');
-            }
-            window.scrollTo(0,0);
-        }
-
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
 
         window.onload = () => {
             populatePresetBadges();
