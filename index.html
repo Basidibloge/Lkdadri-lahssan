@@ -18,6 +18,7 @@
             --bronze-gold: #D4A373;  
             --royal-brown: #4B2E1B;  
             --white: #ffffff;
+            --whatsapp-green: #25D366;
             --main-font: 'Cairo', sans-serif;
             --title-font: 'Amiri', serif;
             --danger: #c0392b;
@@ -205,6 +206,70 @@
         .custom-text-card h3 { color: var(--bronze-gold); margin-bottom: 12px; font-size: 1.6rem; }
         .custom-text-card p { line-height: 2; font-size: 1.15rem; }
 
+        /* صفحة التواصل والواتساب */
+        .contact-box {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            background: var(--papaya);
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid var(--bronze-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .whatsapp-contact-card {
+            background: var(--white);
+            border: 2px solid var(--whatsapp-green);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--whatsapp-green);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+            transition: var(--transition);
+        }
+        .whatsapp-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: #20ba59;
+            color: #fff;
+        }
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
         /* Modal Dashboard */
         .modal {
             display: none;
@@ -356,12 +421,18 @@
             .sidebar.active { left: 0; }
             main, footer { margin-left: 0; }
             .hamburger { display: block; }
+            .floating-whatsapp { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 28px; }
         }
     </style>
 </head>
 <body id="body">
     <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
     
+    <!-- زر الواتساب العائم في أسفل الصفحة -->
+    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="floating-whatsapp" title="تواصل عبر الواتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Sidebar -->
     <nav class="sidebar" id="sidebar">
         <div class="logo" id="main-logo-text">لحسن القدادري</div>
@@ -413,15 +484,31 @@
             <div class="grid" id="shop-grid"></div>
         </div>
 
-        <!-- Contact -->
+        <!-- Contact (تم التحديث لدعم الواتساب المباشر) -->
         <div id="contact" class="page">
             <button class="back-btn" onclick="showPage('home')"><i class="fas fa-undo"></i> <span data-key="back">رجوع</span></button>
-            <div style="max-width:600px; margin:0 auto; padding:40px; background:var(--papaya); border-radius:15px; text-align:center;">
-                <h2 data-key="contact_title" id="dyn-contact-title">تواصل معنا</h2>
-                <form style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
-                    <input type="text" placeholder="الاسم" style="padding:12px; border-radius:5px; border:1px solid var(--bronze-gold);">
-                    <textarea placeholder="رسالتك" style="padding:12px; height:100px; border-radius:5px; border:1px solid var(--bronze-gold);"></textarea>
-                    <button class="nav-item" style="justify-content:center;"><span data-key="send">إرسال</span></button>
+            
+            <div class="contact-box">
+                <h2 data-key="contact_title" id="dyn-contact-title" style="margin-bottom: 20px; font-size: 2.2rem;">تواصل معنا</h2>
+                
+                <!-- بطاقة التواصل المباشر عبر الواتساب -->
+                <div class="whatsapp-contact-card">
+                    <i class="fab fa-whatsapp" style="font-size: 3.5rem; color: var(--whatsapp-green);"></i>
+                    <h3 style="font-size: 1.4rem; color: var(--royal-brown);">للطلب والاستفسار الفوري عن المنتجات</h3>
+                    <p style="color: #666; font-size: 1.05rem;">يسعد المعلم لحسن القدادري الإجابة عن كافة استفساراتكم وطلباتكم المخصصة عبر تطبيق واتساب مباشرة.</p>
+                    <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20الاستفسار%20عن%20منتجات%20الخزف" target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب (+212 612-112248)
+                    </a>
+                </div>
+
+                <!-- نموذج المراسلة الإضافي عبر الموقع -->
+                <form style="display:flex; flex-direction:column; gap:10px; margin-top:15px;" onsubmit="sendViaWhatsappForm(event)">
+                    <p style="font-weight: bold; font-size: 0.95rem; color: var(--royal-brown);">أو اترك رسالتك السريعة هنا:</p>
+                    <input type="text" id="contact-name" placeholder="الاسم الكامل" required style="padding:12px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;">
+                    <textarea id="contact-msg" placeholder="اكتب استفسارك هنا..." required style="padding:12px; height:90px; border-radius:8px; border:1px solid var(--bronze-gold); background:white;"></textarea>
+                    <button type="submit" class="nav-item" style="justify-content:center; background:var(--royal-brown); color:white;">
+                        <i class="fas fa-paper-plane"></i> إرسال عبر الواتساب
+                    </button>
                 </form>
             </div>
         </div>
@@ -440,7 +527,7 @@
                 <button class="tab-btn" onclick="switchAdminTab('editTab', this)"><i class="fas fa-edit"></i> تعديل وحذف الوسائط</button>
             </div>
 
-            <!-- تبويب 1: استوديو الألوان والخطوط -->
+            <!-- تبويب 1: الألوان والخطوط -->
             <div id="themeTab" class="tab-panel active">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                     <label style="font-weight:bold;">اختر من بين 100 باليتة مجهزة باحترافية HD:</label>
@@ -570,9 +657,9 @@
 
     <footer id="footer">
         <p data-key="footer">© 2024 المعلم لحسن القدادري. جميع الحقوق محفوظة.</p>
-        <div style="display:flex; gap:15px;">
-            <a href="#" style="color:white;"><i class="fab fa-instagram"></i></a>
-            <a href="#" style="color:white;"><i class="fab fa-whatsapp"></i></a>
+        <div style="display:flex; gap:15px; align-items:center;">
+            <a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن" target="_blank" style="color:#25D366; font-size:1.4rem;" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" style="color:white; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 
@@ -612,7 +699,6 @@
 
         let currentSha = null;
 
-        // توليد 100 باليتة لونية HD احترافية
         const baseThemes = [
             { name: "فخار مراكشي أصيل", bg: "#fbf6f0", sidebar: "#cfa17b", bronze: "#b87333", papaya: "#ecd5c1", text: "#3d1f11" },
             { name: "زيتوني أطلسي", bg: "#f4f6f0", sidebar: "#94a884", bronze: "#a87d4f", papaya: "#d8e2dc", text: "#2d3826" },
@@ -636,7 +722,6 @@
         let pId = 1;
         baseThemes.forEach(bt => {
             for(let i = 0; i < 10; i++) {
-                const shift = (i * 8);
                 generatedPresets.push({
                     name: `${bt.name} ${i+1}`,
                     bg: bt.bg,
@@ -691,9 +776,7 @@
             if(themeObj.mainFont) document.getElementById('mainFontSelect').value = themeObj.mainFont;
         }
 
-        function applyFullPreset(p) {
-            applyTheme(p);
-        }
+        function applyFullPreset(p) { applyTheme(p); }
 
         function applyLiveColor(varName, color) {
             document.documentElement.style.setProperty(varName, color);
@@ -710,9 +793,7 @@
             if(varName === '--main-font') currentTheme.mainFont = fontVal;
         }
 
-        function resetDefaultTheme() {
-            applyTheme(defaultTheme);
-        }
+        function resetDefaultTheme() { applyTheme(defaultTheme); }
 
         async function saveThemeSettings() {
             siteData.theme = { ...currentTheme };
@@ -720,7 +801,6 @@
             alert("تم حفظ المظهر الجديد ونشره بنجاح لجميع الزوار!");
         }
 
-        /* إدارة النصوص */
         function renderTexts() {
             document.getElementById('dyn-hero-title').innerText = siteData.coreTexts.heroTitle;
             document.getElementById('dyn-bio-title').innerText = siteData.coreTexts.bioTitle;
@@ -829,7 +909,6 @@
             }
         }
 
-        /* عرض وتحديث الوسائط */
         function renderAllMedia() {
             ['home', 'gallery', 'shop'].forEach(page => {
                 const container = document.getElementById(page + '-grid');
@@ -846,7 +925,7 @@
                         : `<img src="${item.src}" alt="${item.title || ''}">`;
 
                     let shopBtn = page === 'shop' 
-                        ? `<button class="nav-item" style="justify-content:center; margin-top:10px;"><span>إضافة للسلة</span></button>` 
+                        ? `<a href="https://wa.me/212612112248?text=السلام%20عليكم%20المعلم%20لحسن،%20أود%20طلب%20واستفسار%20عن%20المنتج:%20${encodeURIComponent(item.title || 'منتج خزفي')}" target="_blank" class="nav-item" style="justify-content:center; margin-top:10px; text-decoration:none; background:#25D366; color:white;"><i class="fab fa-whatsapp"></i> <span>طلب عبر واتساب</span></a>` 
                         : '';
 
                     box.innerHTML = `
@@ -860,7 +939,14 @@
             });
         }
 
-        /* ربط GitHub */
+        function sendViaWhatsappForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const msg = document.getElementById('contact-msg').value;
+            const fullMsg = `السلام عليكم المعلم لحسن القدادري، أنا ${name}.\nرسالتي: ${msg}`;
+            window.open(`https://wa.me/212612112248?text=${encodeURIComponent(fullMsg)}`, '_blank');
+        }
+
         async function fetchGitHubData() {
             try {
                 const res = await fetch(`https://api.github.com/repos/${GH_USER}/${GH_REPO}/contents/${DATA_FILE}?ref=main`, {
@@ -1025,7 +1111,6 @@
             }
         }
 
-        /* أدوات التنقل والحماية */
         function openShieldAdmin() {
             const code = prompt("يرجى إدخال الرمز السري للوصول:");
             if (code === "Marrakech1") {
@@ -1037,9 +1122,7 @@
             }
         }
 
-        function closeShieldModal() {
-            document.getElementById('shieldModal').style.display = "none";
-        }
+        function closeShieldModal() { document.getElementById('shieldModal').style.display = "none"; }
 
         function switchAdminTab(tabId, btn) {
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1067,9 +1150,7 @@
             window.scrollTo(0,0);
         }
 
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
 
         window.onload = () => {
             populatePresetBadges();
