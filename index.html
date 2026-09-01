@@ -246,7 +246,7 @@
         }
         .mini-card img {
             width: 100%;
-            height: 120px;
+            height: 160px; /* تعديل الارتفاع ليكون متوسطاً كما طلبتم */
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -289,7 +289,7 @@
             right: 30px;
         }
 
-        /* شبكة المتجر والتحف الثمانية */
+        /* شبكة المتجر والتحف */
         .shop-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -305,19 +305,42 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(107, 68, 35, 0.15);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .product-card:hover {
             transform: translateY(-3px);
         }
         .product-card img {
             width: 100%;
-            height: 320px;
+            height: 300px;
             object-fit: cover;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
         .product-card img:hover {
             transform: scale(1.03);
+        }
+        
+        /* زر الشراء عبر الواتساب للتحف */
+        .buy-btn {
+            background-color: #25d366;
+            color: white !important;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            text-decoration: none !important;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            background-color: #20ba5a;
+            color: white !important;
+            text-decoration: none;
         }
 
         /* تنسيق خاص لتمييز بطاقات الأباجورات */
@@ -464,7 +487,7 @@
 
                     <hr class="royal-divider">
 
-                    <!-- 4 صور صغيرة مصطفة في عمود أفقي واحد مع روابطها وميزة التكبير -->
+                    <!-- 4 صور صغيرة مصطفة في عمود أفقي واحد مع روابطها وميزة التكبير (تم جعل حجم الصور متوسطاً بحسب طلبكم) -->
                     <div class="mini-horizontal-grid">
                         <div class="mini-card" onclick="openLightbox('https://i.postimg.cc/wT6bfqvF/IMG-20260824-WA0017.jpg')">
                             <img src="https://i.postimg.cc/wT6bfqvF/IMG-20260824-WA0017.jpg" alt="تحفة 1">
@@ -478,527 +501,4 @@
                             <img src="https://i.postimg.cc/7Zrb8WFn/IMG-20260824-WA0020.jpg" alt="تحفة 3">
                             <div class="p-1 text-center"><small class="font-weight-bold" data-i18n="masterpiece_3">تحفة 3</small></div>
                         </div>
-                        <div class="mini-card" onclick="openLightbox('https://i.postimg.cc/LsC1pVBM/IMG-20260824-WA0026.jpg')">
-                            <img src="https://i.postimg.cc/LsC1pVBM/IMG-20260824-WA0026.jpg" alt="تحفة 4">
-                            <div class="p-1 text-center"><small class="font-weight-bold" data-i18n="masterpiece_4">تحفة 4</small></div>
-                        </div>
-                    </div>
-
-                    <!-- نص تعريفي تكميلي للصور الأربع -->
-                    <p class="mt-3" style="line-height: 1.8; font-weight: 500;" data-i18n="mini_desc">
-                        تجسد هذه اللقطات الأربع باقة مختارة من أبدع المصنوعات اليدوية التي يزخر بها الرواق، حيث تتكامل أصالة الزخارف التقليدية مع دقة التشكيل الحديث بلمسات ساحرة. وكل قطعة مسجلة هنا تروي قصة إتقان رفيع وعشق دائم لصنعة الفخار والخزف الأصيل، لتشكل معاً سجلاً بصرياً يعكس عراقة المعلم الحسن قدادري وتفرده المستمر.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. قسم السيرة الذاتية -->
-    <div id="biography" class="container section-box my-4">
-        <div class="container p-4 paper-content royal-frame">
-            
-            <!-- بنر عنوان القسم واللوجو المربع على اليمين -->
-            <div class="section-header-banner">
-                <div class="section-logo-box">
-                    <img src="https://i.top4top.io/p_3892bvvbf8.jpg" alt="لوجو رواق المعلم الحسن قدادري" onclick="openLightbox('https://i.top4top.io/p_3892bvvbf8.jpg')">
-                </div>
-                <div>
-                    <h2 class="font-weight-bold mb-2" data-i18n="bio_heading">السيرة الذاتية للمعلم الحسن قدادري</h2>
-                    <p class="mb-0 font-weight-bold" style="font-size: 15px;" data-i18n="bio_sub">محطات مضيئة ومسيرة عريقة في خدمة فنون الخزف والصناعة التقليدية</p>
-                </div>
-            </div>
-            
-            <hr class="royal-divider">
-
-            <!-- الصورة الأولى في السيرة الذاتية -->
-            <div class="p-3 mb-4 text-right" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-3">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/59vSwZSp/IMG-20260824-WA0008.jpg" alt="المعلم الحسن قدادري - محطة 1" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/59vSwZSp/IMG-20260824-WA0008.jpg')">
-                </div>
-                <h3 class="font-weight-bold mb-2" style="font-size: 19px;" data-i18n="bio_1_title">الجذور الأصيلة والانطلاقة الأولى</h3>
-                <p style="line-height: 1.8; font-weight: 500;" data-i18n="bio_1_desc">
-                    ينحدر المعلم الحسن قدادري من أعماق حاضرة سلا العتيقة، حيث ترعرع بين أحضان الصنعة التقليدية العريقة وتتشرب روحه أسرار تشكيل الطين منذ صباه. لقد شكلت هذه البدايات المبكرة حجر الأساس لمسيرة فنية استثنائية كرّس فيها حياته للحفاظ على التراث المغربي الأصيل ونقله بكل أمانة وإتقان.
-                </p>
-            </div>
-
-            <hr class="royal-divider">
-
-            <!-- الصورة الثانية في السيرة الذاتية -->
-            <div class="p-3 mb-4 text-right" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-3">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/508QCMWt/IMG-20260824-WA0013.jpg" alt="المعلم الحسن قدادري - محطة 2" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/508QCMWt/IMG-20260824-WA0013.jpg')">
-                </div>
-                <h3 class="font-weight-bold mb-2" style="font-size: 19px;" data-i18n="bio_2_title">عقود من الصقل والإبداع المستمر</h3>
-                <p style="line-height: 1.8; font-weight: 500;" data-i18n="bio_2_desc">
-                    قضى المعلم الحسن قدادري عقوداً طويلة في معامل الورشات متوسماً في كل حبة تراب فرصة لخلق تحفة فنية ناطقة بالجمال. لقد تميزت مسيرته المهنية بالصبر والدقة العالية في النقش والتشكيل، مما مكنه من تطوير أسلوب فريد يمزج ببراعة بين أصالة الماضي وروح الابتكار المعاصر في صناعة الفخار والخزف.
-                </p>
-            </div>
-
-            <hr class="royal-divider">
-
-            <!-- الصورة الثالثة في السيرة الذاتية -->
-            <div class="p-3 mb-4 text-right" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-3">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/SxwK7trr/IMG-20260824-WA0016.jpg" alt="المعلم الحسن قدادري - محطة 3" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/SxwK7trr/IMG-20260824-WA0016.jpg')">
-                </div>
-                <h3 class="font-weight-bold mb-2" style="font-size: 19px;" data-i18n="bio_3_title">الأمانة الفنية وإحياء التراث العريق</h3>
-                <p style="line-height: 1.8; font-weight: 500;" data-i18n="bio_3_desc">
-                    حمل المعلم الحسن قدادري الأمانة الفنية بكل شرف واقتدار، واضعاً نصب عيناه حماية الصنعة التقليدية من الاندثار. فكل قطعة فخارية أو مزهرية مزخرفة تخرج من تحت أصابعه تحكي قصة وفاء عميق لتاريخ مدينة سلا العتيقة، وتجسد التزاماً راسخاً بتقديم أرفع مستويات الجودة الفنية والجمالية للأجيال القادمة.
-                </p>
-            </div>
-
-            <hr class="royal-divider">
-
-            <!-- الصورة الرابعة في السيرة الذاتية -->
-            <div class="p-3 mb-4 text-right" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-3">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/qqR0d8LP/IMG-20260824-WA0010.jpg" alt="المعلم الحسن قدادري - محطة 4" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/qqR0d8LP/IMG-20260824-WA0010.jpg')">
-                </div>
-                <h3 class="font-weight-bold mb-2" style="font-size: 19px;" data-i18n="bio_4_title">بصمات متفردة في عالم الفنون الخزفية</h3>
-                <p style="line-height: 1.8; font-weight: 500;" data-i18n="bio_4_desc">
-                    تُعد أعمال المعلم الحسن قدادري علامة فارقة ومضيئة في خارطة الصناعة التقليدية المغربية، لما تحمله من إتقان هندسي رفيع ولمسات يدوية ساحرة. لقد استطاع بفضل رؤيته الفنية الثاقبة أن يترك بصمة خالدة في قلوب عشاق الفن الرفيع، جاعلاً من كل منجز فني شاهداً حياً على عظمة الإبداع المغربي الأصيل.
-                </p>
-            </div>
-
-            <hr class="royal-divider">
-
-            <!-- الصورة الخامسة في السيرة الذاتية -->
-            <div class="p-3 mb-4 text-right" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-3">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/43QT782j/IMG-20260824-WA0014.jpg" alt="المعلم الحسن قدادري - محطة 5" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/43QT782j/IMG-20260824-WA0014.jpg')">
-                </div>
-                <h3 class="font-weight-bold mb-2" style="font-size: 19px;" data-i18n="bio_5_title">مسيرة عطاء متواصلة ورسالة خالدة</h3>
-                <p style="line-height: 1.8; font-weight: 500;" data-i18n="bio_5_desc">
-                    تتوج مسيرة المعلم الحسن قدادري برسالة فنية وإنسانية خالدة عنوانها التفاني وحب المهنة، حيث يواصل بكل شغف إنارة طريق الإبداع لكل قاصد وزائر لرواقه العريق. إن عطاءه المستمر يظل منارة تلهم عشاق الأصالة، وتؤكد بأن الفن الحقيقي هو الذي ينبع من الروح ويخلده الإخلاص والعمل الدؤوب.
-                </p>
-            </div>
-
-            <hr class="royal-divider">
-
-            <!-- الصورة السادسة (الأخيرة) في السيرة الذاتية: إبداع الأباجورات -->
-            <div class="p-3 mb-4 text-right" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-3">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/k5sg3XC0/IMG-20260824-WA0012.jpg" alt="المعلم الحسن قدادري - صناعة الأباجورات التراثية" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/k5sg3XC0/IMG-20260824-WA0012.jpg')">
-                </div>
-                <h3 class="font-weight-bold mb-2" style="font-size: 19px;" data-i18n="bio_6_title">تألق الإبداع: من الخزف إلى صناعة الأباجورات التراثية</h3>
-                <p style="line-height: 1.8; font-weight: 500;" data-i18n="bio_6_desc">
-                    لم يقتصر إبداع المعلم الحسن قدادري على صياغة التحف الفخارية والأواني الخزفية فحسب، بل امتدت براعته لتشمل ابتكار وصناعة الأباجورات الفاخرة؛ محولاً إياها إلى تحف ديكورية إبداعية تنبض بروح التقاليد المغربية العريقة، وتجمع بين دقة الزخرفة اليدوية وسحر الإضاءة التراثية لتضفي رونقاً استثنائياً على مختلف الفضاءات.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. قسم الرواق المرئي (الفيديوهات) -->
-    <div id="videos" class="container section-box my-4">
-        <div class="container p-4 paper-content royal-frame">
-            
-            <!-- بنر عنوان القسم واللوجو المربع على اليمين -->
-            <div class="section-header-banner">
-                <div class="section-logo-box">
-                    <img src="https://i.top4top.io/p_3892bvvbf8.jpg" alt="لوجو رواق المعلم الحسن قدادري" onclick="openLightbox('https://i.top4top.io/p_3892bvvbf8.jpg')">
-                </div>
-                <div>
-                    <h2 class="font-weight-bold mb-2" data-i18n="videos_heading">الرواق المرئي وفيديوهات المعلم</h2>
-                    <p class="mb-0 font-weight-bold" style="font-size: 15px;" data-i18n="videos_sub">جولة بصرية حية داخل ورشات الإبداع والفنون الخزفية</p>
-                </div>
-            </div>
-            
-            <hr class="royal-divider">
-            <div class="videos-grid">
-                <div class="video-card text-center">
-                    <video controls autoplay muted loop>
-                        <source src="https://k.top4top.io/m_3890ilm4c0.mp4" type="video/mp4">
-                    </video>
-                    <p class="mt-2 font-weight-bold" data-i18n="vid_1">توثيق إبداعي 1</p>
-                </div>
-                <div class="video-card text-center">
-                    <video controls autoplay muted loop>
-                        <source src="https://e.top4top.io/m_3892wvqpk0.mp4" type="video/mp4">
-                    </video>
-                    <p class="mt-2 font-weight-bold" data-i18n="vid_2">توثيق إبداعي 2</p>
-                </div>
-                <div class="video-card text-center">
-                    <video controls autoplay muted loop>
-                        <source src="https://i.top4top.io/m_3892bj0vc0.mp4" type="video/mp4">
-                    </video>
-                    <p class="mt-2 font-weight-bold" data-i18n="vid_3">توثيق إبداعي 3</p>
-                </div>
-                <div class="video-card text-center">
-                    <video controls autoplay muted loop>
-                        <source src="https://a.top4top.io/m_389239gf81.mp4" type="video/mp4">
-                    </video>
-                    <p class="mt-2 font-weight-bold" data-i18n="vid_4">توثيق إبداعي 4</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. قسم المتجر والتحف -->
-    <div id="shop" class="container section-box my-4">
-        <div class="container p-4 paper-content royal-frame">
-            
-            <!-- بنر عنوان القسم واللوجو المربع على اليمين -->
-            <div class="section-header-banner">
-                <div class="section-logo-box">
-                    <img src="https://i.top4top.io/p_3892bvvbf8.jpg" alt="لوجو رواق المعلم الحسن قدادري" onclick="openLightbox('https://i.top4top.io/p_3892bvvbf8.jpg')">
-                </div>
-                <div>
-                    <h2 class="font-weight-bold mb-2" data-i18n="shop_heading">تشكيلة المتجر والتحف الفنية</h2>
-                    <p class="mb-0 font-weight-bold" style="font-size: 15px;" data-i18n="shop_sub">روائع الخزف والفخار التقليدي للمعلم الحسن قدادري</p>
-                </div>
-            </div>
-            
-            <hr class="royal-divider">
-
-            <!-- صورة الرواق الجامعة لمختلف التحف والإبداعات -->
-            <div class="p-3 mb-4 text-center" style="border: 2px solid #8b5a2b; border-radius: 8px; background: rgba(255, 255, 255, 0.7);">
-                <h4 class="font-weight-bold mb-3" style="font-size: 18px;" data-i18n="gallery_title">معرض التحف الجامعة لرواق المعلم الحسن قدادري</h4>
-                <div style="height: 380px; overflow: hidden; border-radius: 6px; border: 1px solid #8b5a2b;" class="shadow-sm mb-2">
-                    <img class="img-fluid w-100 h-100" src="https://i.postimg.cc/QdDGJtxg/IMG-20260824-WA0033.jpg" alt="صورة الرواق الجامعة للتحف" style="object-fit: cover; cursor: pointer;" onclick="openLightbox('https://i.postimg.cc/QdDGJtxg/IMG-20260824-WA0033.jpg')">
-                </div>
-                <small class="font-weight-bold" data-i18n="gallery_sub">نظرة شاملة على تنوع وابداع التحف المعروضة داخل الرواق</small>
-            </div>
-
-            <hr class="royal-divider">
-
-            <div class="shop-grid">
-                <!-- التحفة 1 -->
-                <div class="product-card abajour-card text-center">
-                    <img src="https://a.top4top.io/p_38923tkym0.jpg" alt="أباجورة تراثية بالترابيش" onclick="openLightbox('https://a.top4top.io/p_38923tkym0.jpg')">
-                    <div class="p-2 bg-light font-weight-bold product-label-1" style="color: #8b5a2b; border-top: 1px solid #8b5a2b; font-size: 14px;" data-i18n="prod_1">أباجورة أصيلة مزودة بالترابيش الفاخرة</div>
-                </div>
-
-                <!-- التحفة الثانية -->
-                <div class="product-card text-center">
-                    <img src="https://c.top4top.io/p_3892qtss32.jpg" alt="تحفة خزفية 2" onclick="openLightbox('https://c.top4top.io/p_3892qtss32.jpg')">
-                </div>
-
-                <!-- التحفة الثالثة -->
-                <div class="product-card abajour-card text-center">
-                    <img src="https://e.top4top.io/p_3892vbykh4.jpg" alt="أباجورة تراثية بالترابيش" onclick="openLightbox('https://e.top4top.io/p_3892vbykh4.jpg')">
-                    <div class="p-2 bg-light font-weight-bold product-label-2" style="color: #8b5a2b; border-top: 1px solid #8b5a2b; font-size: 14px;" data-i18n="prod_2">أباجورة فاخرة مزودة بالترابيش الفاخرة</div>
-                </div>
-
-                <!-- التحفة الرابعة -->
-                <div class="product-card text-center">
-                    <img src="https://g.top4top.io/p_38923jzmz6.jpg" alt="تحفة خزفية 4" onclick="openLightbox('https://g.top4top.io/p_38923jzmz6.jpg')">
-                </div>
-
-                <!-- التحفة الخامسة -->
-                <div class="product-card text-center">
-                    <img src="https://i.postimg.cc/qBF5j7Qt/IMG-20260824-WA0019.jpg" alt="تحفة خزفية 5" onclick="openLightbox('https://i.postimg.cc/qBF5j7Qt/IMG-20260824-WA0019.jpg')">
-                </div>
-
-                <!-- التحفة السادسة -->
-                <div class="product-card text-center">
-                    <img src="https://i.postimg.cc/1ttvKxqw/IMG-20260824-WA0026.jpg" alt="تحفة خزفية 6" onclick="openLightbox('https://i.postimg.cc/1ttvKxqw/IMG-20260824-WA0026.jpg')">
-                </div>
-
-                <!-- التحفة السابعة -->
-                <div class="product-card text-center">
-                    <img src="https://i.postimg.cc/yWqnBkrM/IMG-20260824-WA0029.jpg" alt="تحفة خزفية 7" onclick="openLightbox('https://i.postimg.cc/yWqnBkrM/IMG-20260824-WA0029.jpg')">
-                </div>
-
-                <!-- التحفة الثامنة -->
-                <div class="product-card abajour-card text-center">
-                    <img src="https://i.postimg.cc/QdDGJtxg/IMG-20260824-WA0033.jpg" alt="أباجورة تراثية بالترابيش" onclick="openLightbox('https://i.postimg.cc/QdDGJtxg/IMG-20260824-WA0033.jpg')">
-                    <div class="p-2 bg-light font-weight-bold product-label-3" style="color: #8b5a2b; border-top: 1px solid #8b5a2b; font-size: 14px;" data-i18n="prod_3">أباجورة ملكية مزودة بالترابيش الفاخرة</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. قسم اتصل بنا -->
-    <div id="contact" class="container section-box my-4">
-        <div class="container p-4 paper-content royal-frame">
-            
-            <!-- بنر عنوان القسم واللوجو المربع على اليمين -->
-            <div class="section-header-banner">
-                <div class="section-logo-box">
-                    <img src="https://i.top4top.io/p_3892bvvbf8.jpg" alt="لوجو رواق المعلم الحسن قدادري" onclick="openLightbox('https://i.top4top.io/p_3892bvvbf8.jpg')">
-                </div>
-                <div>
-                    <h2 class="font-weight-bold mb-2" data-i18n="contact_heading">اتصل بنا وطلب التحف</h2>
-                    <p class="mb-0 font-weight-bold" style="font-size: 15px;" data-i18n="contact_sub">رواق الفنون الخزفية بمدينة سلا. نحن في خدمتكم للطلبات والاستفسارات</p>
-                </div>
-            </div>
-            
-            <hr class="royal-divider">
-
-            <div class="row px-xl-5 pt-3">
-                <div class="col-lg-4 col-md-12 mb-5">
-                    <h2 class="mb-4" style="font-size: 24px; color: #d4af37 !important;" data-i18n="footer_title">رواق المعلم الحسن قدادري</h2>
-                    <hr class="royal-divider" style="width: 60%; margin-right: 0;">
-                    <p class="font-weight-bold" data-i18n="footer_desc">رواق الفنون الخزفية بمدينة سلا. نحافظ على الأصالة ونبتكر الجمال الرفيع.</p>
-                    <p class="mb-2 font-weight-bold"><i class="fa fa-map-marker-alt ml-3" style="color: #6b4423;"></i><span data-i18n="footer_loc">سلا، المغرب</span></p>
-                    <p class="mb-2 font-weight-bold"><i class="fa fa-phone-alt ml-3" style="color: #6b4423;"></i><a href="https://wa.me/212612112248" target="_blank" class="font-weight-bold" style="color: #6b4423;">212612112248</a></p>
-                </div>
-                <div class="col-lg-8 col-md-12">
-                    <h5 class="font-weight-bold mb-4" data-i18n="form_heading">التواصل والطلبات المباشرة</h5>
-                    <hr class="royal-divider" style="width: 50%; margin-right: 0;">
-                    <form action="">
-                        <div class="form-group">
-                            <input type="text" class="form-control border-0 py-4 text-right" style="background: rgba(255,255,255,0.9); color: #6b4423;" placeholder="اسمك الكريم" data-i18n-placeholder="ph_name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control border-0 py-4 text-right" style="background: rgba(255,255,255,0.9); color: #6b4423;" placeholder="رقم هاتفك" data-i18n-placeholder="ph_phone" required="required" />
-                        </div>
-                        <div>
-                            <a href="https://wa.me/212612112248" target="_blank" class="btn btn-block border-0 py-3 text-white font-weight-bold text-decoration-none" style="background-color: #6b4423;">
-                                <i class="fab fa-whatsapp ml-1"></i> <span data-i18n="whatsapp_btn">إرسال الطلب عبر واتساب</span>
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- زر الواتساب العائم المصغر -->
-    <a href="https://wa.me/212612112248" target="_blank" class="whatsapp-float" title="تواصل عبر واتساب">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- البرمجة المسؤولة عن تبديل الأقسام، القائمة، وتكبير الصور وتغيير اللغات -->
-    <script>
-        const translations = {
-            ar: {
-                main_title: "رواق المعلم الحسن قدادري | فن الخزف التقليدي والحديث",
-                menu_title: "عناوين الصفحات",
-                nav_home: "الرئيسية",
-                nav_bio: "السيرة الذاتية",
-                nav_videos: "الرواق المرئي (الفيديوهات)",
-                nav_shop: "المتجر والتحف",
-                nav_contact: "اتصل بنا",
-                home_heading: "رواق المعلم الحسن قدادري",
-                home_sub: "الصفحة الرئيسية وعرض التحف والواجهة الرسمية",
-                quote_text: "«حيث ينطق الطين فخراً، ويسيل الجمال ذهباً وأصالة»",
-                home_desc: "في قلب عاصمة الصنعة التقليدية وحاضرة التاريخ، مدينة سلا العتيقة، يتألق رواق المعلم الحسن قدادري كصرحٍ شامخ ينبض بروح الإبداع المغربي الأصيل. ليس الرواق مجرد مكان لعرض التحف، بل هو مرآة حية لمسيرة استثنائية وعقود من العطاء المتواصل لرجل أخذ على عاتقه حمل الأمانة الفنية، ليُحيي الطين الأبكم بروح نابضة بالحياة.",
-                creations_title: "إبداعات ناطقة بعبق التراث السلاوي",
-                creations_desc: "تعكس هذه اللوحة البصرية جانباً متألقاً من إبداعات رواق المعلم الحسن قدادري، حيث يتجلى التناغم الفريد بين روعة التصميم وجماليات الفن المعاصر، لتظل شاهدة حية على مهارة الصنعة المغربية الأصيلة التي تتوارثها الأجيال بكل فخر واعتزاز.",
-                masterpiece_1: "تحفة 1",
-                masterpiece_2: "تحفة 2",
-                masterpiece_3: "تحفة 3",
-                masterpiece_4: "تحفة 4",
-                mini_desc: "تجسد هذه اللقطات الأربع باقة مختارة من أبدع المصنوعات اليدوية التي يزخر بها الرواق، حيث تتكامل أصالة الزخارف التقليدية مع دقة التشكيل الحديث بلمسات ساحرة. وكل قطعة مسجلة هنا تروي قصة إتقان رفيع وعشق دائم لصنعة الفخار والخزف الأصيل، لتشكل معاً سجلاً بصرياً يعكس عراقة المعلم الحسن قدادري وتفرده المستمر.",
-                bio_heading: "السيرة الذاتية للمعلم الحسن قدادري",
-                bio_sub: "محطات مضيئة ومسيرة عريقة في خدمة فنون الخزف والصناعة التقليدية",
-                bio_1_title: "الجذور الأصيلة والانطلاقة الأولى",
-                bio_1_desc: "ينحدر المعلم الحسن قدادري من أعماق حاضرة سلا العتيقة، حيث ترعرع بين أحضان الصنعة التقليدية العريقة وتتشرب روحه أسرار تشكيل الطين منذ صباه. لقد شكلت هذه البدايات المبكرة حجر الأساس لمسيرة فنية استثنائية كرّس فيها حياته للحفاظ على التراث المغربي الأصيل ونقله بكل أمانة وإتقان.",
-                bio_2_title: "عقود من الصقل والإبداع المستمر",
-                bio_2_desc: "قضى المعلم الحسن قدادري عقوداً طويلة في معامل الورشات متوسماً في كل حبة تراب فرصة لخلق تحفة فنية ناطقة بالجمال. لقد تميزت مسيرته المهنية بالصبر والدقة العالية في النقش والتشكيل، مما مكنه من تطوير أسلوب فريد يمزج ببراعة بين أصالة الماضي وروح الابتكار المعاصر في صناعة الفخار والخزف.",
-                bio_3_title: "الأمانة الفنية وإحياء التراث العريق",
-                bio_3_desc: "حمل المعلم الحسن قدادري الأمانة الفنية بكل شرف واقتدار، واضعاً نصب عيناه حماية الصنعة التقليدية من الاندثار. فكل قطعة فخارية أو مزهرية مزخرفة تخرج من تحت أصابعه تحكي قصة وفاء عميق لتاريخ مدينة سلا العتيقة، وتجسد التزاماً راسخاً بتقديم أرفع مستويات الجودة الفنية والجمالية للأجيال القادمة.",
-                bio_4_title: "بصمات متفردة في عالم الفنون الخزفية",
-                bio_4_desc: "تُعد أعمال المعلم الحسن قدادري علامة فارقة ومضيئة في خارطة الصناعة التقليدية المغربية، لما تحمله من إتقان هندسي رفيع ولمسات يدوية ساحرة. لقد استطاع بفضل رؤيته الفنية الثاقبة أن يترك بصمة خالدة في قلوب عشاق الفن الرفيع، جاعلاً من كل منجز فني شاهداً حياً على عظمة الإبداع المغربي الأصيل.",
-                bio_5_title: "مسيرة عطاء متواصلة ورسالة خالدة",
-                bio_5_desc: "تتوج مسيرة المعلم الحسن قدادري برسالة فنية وإنسانية خالدة عنوانها التفاني وحب المهنة، حيث يواصل بكل شغف إنارة طريق الإبداع لكل قاصد وزائر لرواقه العريق. إن عطاءه المستمر يظل منارة تلهم عشاق الأصالة، وتؤكد بأن الفن الحقيقي هو الذي ينبع من الروح ويخلده الإخلاص والعمل الدؤوب.",
-                bio_6_title: "تألق الإبداع: من الخزف إلى صناعة الأباجورات التراثية",
-                bio_6_desc: "لم يقتصر إبداع المعلم الحسن قدادري على صياغة التحف الفخارية والأواني الخزفية فحسب، بل امتدت براعته لتشمل ابتكار وصناعة الأباجورات الفاخرة؛ محولاً إياها إلى تحف ديكورية إبداعية تنبض بروح التقاليد المغربية العريقة، وتجمع بين دقة الزخرفة اليدوية وسحر الإضاءة التراثية لتضفي رونقاً استثنائياً على مختلف الفضاءات.",
-                videos_heading: "الرواق المرئي وفيديوهات المعلم",
-                videos_sub: "جولة بصرية حية داخل ورشات الإبداع والفنون الخزفية",
-                vid_1: "توثيق إبداعي 1",
-                vid_2: "توثيق إبداعي 2",
-                vid_3: "توثيق إبداعي 3",
-                vid_4: "توثيق إبداعي 4",
-                shop_heading: "تشكيلة المتجر والتحف الفنية",
-                shop_sub: "روائع الخزف والفخار التقليدي للمعلم الحسن قدادري",
-                gallery_title: "معرض التحف الجامعة لرواق المعلم الحسن قدادري",
-                gallery_sub: "نظرة شاملة على تنوع وابداع التحف المعروضة داخل الرواق",
-                prod_1: "أباجورة أصيلة مزودة بالترابيش الفاخرة",
-                prod_2: "أباجورة فاخرة مزودة بالترابيش الفاخرة",
-                prod_3: "أباجورة ملكية مزودة بالترابيش الفاخرة",
-                contact_heading: "اتصل بنا وطلب التحف",
-                contact_sub: "رواق الفنون الخزفية بمدينة سلا. نحن في خدمتكم للطلبات والاستفسارات",
-                footer_title: "رواق المعلم الحسن قدادري",
-                footer_desc: "رواق الفنون الخزفية بمدينة سلا. نحافظ على الأصالة ونبتكر الجمال الرفيع.",
-                footer_loc: "سلا، المغرب",
-                form_heading: "التواصل والطلبات المباشرة",
-                ph_name: "اسمك الكريم",
-                ph_phone: "رقم هاتفك",
-                whatsapp_btn: "إرسال الطلب عبر واتساب"
-            },
-            fr: {
-                main_title: "Galerie du Maître El Hassan lkdadri | Céramique Traditionnelle et Moderne",
-                menu_title: "Navigation",
-                nav_home: "Accueil",
-                nav_bio: "Biographie",
-                nav_videos: "Galerie Vidéo",
-                nav_shop: "Boutique & Œuvres",
-                nav_contact: "Contactez-nous",
-                home_heading: "Galerie du Maître El Hassan lkdadri",
-                home_sub: "Page d'accueil et présentation officielle",
-                quote_text: "« Là où l'argile parle de fierté et où la beauté coule avec authenticité »",
-                home_desc: "Au cœur de la capitale de l'artisanat et de la cité historique de Salé, la galerie du Maître El Hassan lkdadri brille comme un phare de la créativité marocaine authentique. La galerie n'est pas seulement un lieu d'exposition, c'est le miroir vivant d'un parcours exceptionnel dédié à l'art de façonner la terre.",
-                creations_title: "Créations aux parfums du patrimoine de Salé",
-                creations_desc: "Cette œuvre visuelle reflète l'éclat des créations de la galerie, où se mêlent l'authenticité des motifs traditionnels et l'élégance de l'art contemporain.",
-                masterpiece_1: "Œuvre 1",
-                masterpiece_2: "Œuvre 2",
-                masterpiece_3: "Œuvre 3",
-                masterpiece_4: "Œuvre 4",
-                mini_desc: "Ces quatre clichés incarnent une sélection exquise des plus beaux objets artisanaux de la galerie, unissant la finesse du travail manuel à l'amour éternel de la poterie.",
-                bio_heading: "Biographie du Maître El Hassan lkdadri",
-                bio_sub: "Un parcours d'excellence au service de l'art de la céramique",
-                bio_1_title: "Racines authentiques et premiers pas",
-                bio_1_desc: "Le Maître El Hassan lkdadri est issu des profondeurs de la vieille ville de Salé, où il a grandi au rythme de l'artisanat traditionnel, s'imprégnant des secrets de la sculpture sur argile.",
-                bio_2_title: "Des décennies de raffinement et de création",
-                bio_2_desc: "Il a consacré de longues décennies dans les ateliers, transformant chaque parcelle de terre en une œuvre d'art vivante, associant avec brio la tradition et l'innovation.",
-                bio_3_title: "Fidélité à l'héritage ancestral",
-                bio_3_desc: "Le Maître a porté cet héritage avec un honneur indéfectible, protégeant l'artisanat traditionnel de l'oubli à travers chaque poterie et vase ciselé avec passion.",
-                bio_4_title: "Une empreinte unique dans l'art céramique",
-                bio_4_desc: "Ses œuvres constituent une référence lumineuse dans le paysage artisanal marocain, marquées par une rigueur géométrique et des touches artistiques ensorcelantes.",
-                bio_5_title: "Un engagement perpétuel et un message intemporel",
-                bio_5_desc: "Son parcours s'illumine par un dévouement absolu envers son art, restant un phare d'inspiration pour tous les amoureux de l'authenticité marocaine.",
-                bio_6_title: "L'éclat créatif : de la céramique aux abats-jours d'art",
-                bio_6_desc: "Son talent s'est étendu à la conception d'abats-jours luxueux, mariant l'ornementation minutieuse et la magie d'un éclairage patrimonial d'exception.",
-                videos_heading: "Galerie Vidéo du Maître",
-                videos_sub: "Immersion vivante au cœur des ateliers d'art",
-                vid_1: "Documentaire 1",
-                vid_2: "Documentaire 2",
-                vid_3: "Documentaire 3",
-                vid_4: "Documentaire 4",
-                shop_heading: "Boutique et Collection d'Art",
-                shop_sub: "Chefs-d'œuvre de céramique et de poterie du Maître El Hassan lkdadri",
-                gallery_title: "Exposition collective des œuvres de la galerie",
-                gallery_sub: "Vue d'ensemble sur la richesse et la diversité des pièces",
-                prod_1: "Abat-jour authentique avec finitions luxueuses",
-                prod_2: "Abat-jour de luxe avec finitions luxueuses",
-                prod_3: "Abat-jour royal avec finitions luxueuses",
-                contact_heading: "Contact et Commandes",
-                contact_sub: "Galerie d'art de Salé. À votre écoute pour toute demande",
-                footer_title: "Galerie du Maître El Hassan lkdadri",
-                footer_desc: "Art de la céramique à Salé. Préserver l'authenticité et créer l'excellence.",
-                footer_loc: "Salé, Maroc",
-                form_heading: "Contact Direct & Commandes",
-                ph_name: "Votre Nom",
-                ph_phone: "Votre Téléphone",
-                whatsapp_btn: "Envoyer la commande via WhatsApp"
-            },
-            en: {
-                main_title: "Master El Hassan lkdadri Gallery | Traditional & Modern Ceramics",
-                menu_title: "Navigation",
-                nav_home: "Home",
-                nav_bio: "Biography",
-                nav_videos: "Video Gallery",
-                nav_shop: "Shop & Masterpieces",
-                nav_contact: "Contact Us",
-                home_heading: "Master El Hassan lkdadri Gallery",
-                home_sub: "Official Homepage & Masterpieces Showcase",
-                quote_text: "« Where clay speaks of pride and beauty flows with authenticity »",
-                home_desc: "In the heart of the traditional craftsmanship capital and historic city of Salé, the gallery of Master El Hassan lkdadri shines as a towering beacon of authentic Moroccan creativity. The gallery is a living mirror of an exceptional journey and decades of dedication.",
-                creations_title: "Creations echoing the heritage of Salé",
-                creations_desc: "This visual piece reflects the brilliant creations of the gallery, blending the authenticity of traditional motifs with contemporary art aesthetics.",
-                masterpiece_1: "Piece 1",
-                masterpiece_2: "Piece 2",
-                masterpiece_3: "Piece 3",
-                masterpiece_4: "Piece 4",
-                mini_desc: "These four shots embody an exquisite selection of the gallery's finest handmade crafts, uniting the precision of manual work with an eternal passion for pottery.",
-                bio_heading: "Biography of Master El Hassan lkdadri",
-                bio_sub: "A distinguished journey dedicated to ceramic arts",
-                bio_1_title: "Authentic roots and first steps",
-                bio_1_desc: "Master El Hassan lkdadri hails from the depths of historic Salé, where he grew up amidst traditional craftsmanship, absorbing the secrets of clay shaping from an early age.",
-                bio_2_title: "Decades of refinement and continuous creation",
-                bio_2_desc: "He spent long decades in workshop laboratories, turning every piece of earth into a living masterpiece that gracefully bridges past heritage and modern innovation.",
-                bio_3_title: "Artistic trust and heritage preservation",
-                bio_3_desc: "The Master carried his artistic duty with honor, protecting traditional craftsmanship from fading through every pottery vessel and intricately carved vase.",
-                bio_4_title: "Unique imprints in ceramic arts",
-                bio_4_desc: "His works stand as a shining landmark in Moroccan craftsmanship, distinguished by geometric mastery and enchanting handmade detailing.",
-                bio_5_title: "A continuous legacy and timeless message",
-                bio_5_desc: "His journey culminates in a timeless artistic mission rooted in dedication and love for his craft, remaining an inspiring beacon for lovers of authenticity.",
-                bio_6_title: "Creative brilliance: From ceramics to heritage lamps",
-                bio_6_desc: "His mastery extended to designing luxurious lamps, turning them into artistic decor elements that breathe Moroccan tradition with magical lighting.",
-                videos_heading: "Video Gallery",
-                videos_sub: "Live visual tour inside the art workshops",
-                vid_1: "Documentary 1",
-                vid_2: "Documentary 2",
-                vid_3: "Documentary 3",
-                vid_4: "Documentary 4",
-                shop_heading: "Shop & Art Collection",
-                shop_sub: "Masterpieces of traditional ceramics by Master El Hassan lkdadri",
-                gallery_title: "Comprehensive Exhibition of Masterpieces",
-                gallery_sub: "An overview of the diverse and creative pieces inside the gallery",
-                prod_1: "Authentic lamp with luxury finishes",
-                prod_2: "Luxury lamp with luxury finishes",
-                prod_3: "Royal lamp with luxury finishes",
-                contact_heading: "Contact & Orders",
-                contact_sub: "Ceramic Arts Gallery in Salé. At your service for inquiries",
-                footer_title: "Master El Hassan lkdadri Gallery",
-                footer_desc: "Ceramic arts in Salé. Preserving authenticity and crafting excellence.",
-                footer_loc: "Salé, Morocco",
-                form_heading: "Direct Communication & Orders",
-                ph_name: "Your Name",
-                ph_phone: "Your Phone Number",
-                whatsapp_btn: "Send Order via WhatsApp"
-            }
-        };
-
-        function changeLanguage(lang) {
-            const root = document.getElementById('html-root');
-            if (lang === 'fr' || lang === 'en') {
-                root.setAttribute('dir', 'ltr');
-                root.setAttribute('lang', lang);
-                document.body.classList.add('lang-ltr');
-            } else {
-                root.setAttribute('dir', 'rtl');
-                root.setAttribute('lang', 'ar');
-                document.body.classList.remove('lang-ltr');
-            }
-
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
-            placeholders.forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-        }
-
-        function showSection(sectionId) {
-            var sections = document.getElementsByClassName("section-box");
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove("active-section");
-            }
-            document.getElementById(sectionId).classList.add("active-section");
-            document.getElementById("dropdownMenu").classList.remove("show-dropdown");
-            window.scrollTo(0, 0);
-        }
-
-        function toggleMenu(event) {
-            event.stopPropagation();
-            document.getElementById("dropdownMenu").classList.toggle("show-dropdown");
-        }
-
-        function openLightbox(imgSrc) {
-            var modal = document.getElementById("lightbox-modal");
-            var modalImg = document.getElementById("lightbox-img");
-            modal.style.display = "flex";
-            modalImg.src = imgSrc;
-        }
-
-        function closeLightbox() {
-            document.getElementById("lightbox-modal").style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.menu-btn') && !event.target.matches('.fa-bars') && !event.target.matches('.menu-btn span')) {
-                var dropdowns = document.getElementsByClassName("dropdown-box");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show-dropdown')) {
-                        openDropdown.classList.remove('show-dropdown');
-                    }
-                }
-            }
-        }
-    </script>
-</body>
-
-</html>
+                        <div class="mini-card" onclick="openLightbox(
